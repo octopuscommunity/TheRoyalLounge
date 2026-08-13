@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خطة النمو الكاملة - أول 90 يوماً | Octopus Community</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-900:#081310; --ink-800:#0D1D18; --panel:#11221D; --panel-2:#0E1C17;
+    --line: rgba(184,147,90,0.18); --brass:#B8935A; --brass-bright:#D6B47E; --royal-gold:#C9A961;
+    --text-hi:#F3EFE4; --text-mid:#AFC2BB; --text-dim:#6E857D; --coral:#C1663F; --ok:#7FA88A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{ background:var(--ink-900); color:var(--text-hi); font-family:'Tajawal', sans-serif; line-height:1.85; overflow-x:hidden; }
+  ::selection{ background:var(--brass); color:var(--ink-900); }
+  h1,h2,h3,h4,.display{ font-family:'Cairo', sans-serif; font-weight:800; letter-spacing:-0.01em; }
+  .mono{ font-family:'IBM Plex Mono', monospace; letter-spacing:0.06em; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 32px; }
+  .ink-bg{ position:fixed; inset:0; z-index:0; pointer-events:none;
+    background: radial-gradient(ellipse 900px 500px at 85% -10%, rgba(184,147,90,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 700px at -10% 30%, rgba(31,59,50,0.55), transparent 60%), var(--ink-900); }
+  section{ position:relative; z-index:1; }
+  .brandbar{ position:fixed; top:0; right:0; left:0; z-index:50; display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px; background:linear-gradient(to bottom, rgba(8,19,16,0.92), rgba(8,19,16,0)); backdrop-filter:blur(2px); }
+  .octo-mark{ display:flex; align-items:center; gap:10px; }
+  .octo-mark svg{ width:30px; height:30px; }
+  .octo-mark span{ font-family:'Cairo', sans-serif; font-weight:700; font-size:14px; letter-spacing:0.14em; color:var(--text-hi); }
+  .brandbar .tag{ font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:0.12em; color:var(--text-dim); text-transform:uppercase; }
+  .hero{ min-height:92svh; display:flex; flex-direction:column; justify-content:center; padding-top:80px; padding-bottom:50px; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:10px; font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.14em;
+    color:var(--brass-bright); text-transform:uppercase; margin-bottom:26px; }
+  .eyebrow::before{ content:''; width:26px; height:1px; background:var(--brass-bright); }
+  .hero h1{ font-size:clamp(32px, 5.6vw, 58px); line-height:1.25; color:var(--text-hi); }
+  .hero h1 .en{ display:block; font-family:'IBM Plex Mono', monospace; font-weight:400; font-size:clamp(12px, 1.5vw, 15px);
+    color:var(--brass-bright); letter-spacing:0.1em; margin-top:16px; text-transform:uppercase; }
+  .hero .subline{ font-size:clamp(15px, 1.9vw, 18px); color:var(--text-mid); max-width:660px; margin-top:24px; }
+  .hero .prepared{ margin-top:48px; display:flex; gap:40px; flex-wrap:wrap; }
+  .prepared-item .k{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px; }
+  .prepared-item .v{ font-family:'Cairo', sans-serif; font-weight:600; font-size:15px; color:var(--text-hi); }
+  .ink-divider{ width:100%; height:100px; display:block; margin:0; }
+  .sec{ padding:84px 0; border-top:1px solid var(--line); }
+  .sec-head{ display:flex; align-items:baseline; justify-content:space-between; gap:24px; margin-bottom:18px; flex-wrap:wrap; }
+  .sec-head h2{ font-size:clamp(23px, 3.2vw, 32px); color:var(--text-hi); }
+  .sec-num{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--brass); letter-spacing:0.1em; white-space:nowrap; }
+  .sec-lead{ font-size:16px; color:var(--text-mid); max-width:740px; margin-bottom:16px; }
+  .why-box{ background:var(--panel-2); border-right:2px solid var(--brass); padding:20px 24px; margin:24px 0 38px; max-width:780px; }
+  .why-box .lbl{ font-family:'IBM Plex Mono', monospace; font-size:10px; color:var(--brass-bright); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+  .why-box p{ color:var(--text-mid); font-size:14.5px; }
+  .h3-block{ font-size:18px; color:var(--text-hi); margin:40px 0 16px; }
+  table.data-table{ width:100%; border-collapse:collapse; margin-bottom:8px; }
+  table.data-table th{ text-align:right; font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--text-dim); padding:11px 14px; border-bottom:1px solid var(--line); font-weight:400; }
+  table.data-table td{ padding:16px 14px; border-bottom:1px solid var(--line); vertical-align:top; font-size:14px; color:var(--text-mid); }
+  table.data-table td.key-col{ color:var(--text-hi); font-family:'Cairo', sans-serif; font-weight:700; font-size:14.5px; white-space:nowrap; }
+  table.data-table tr:last-child td{ border-bottom:none; }
+  .pill{ display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:9.5px; padding:3px 9px; border-radius:2px; letter-spacing:0.05em; }
+  .kpi-box{ margin-top:28px; background:linear-gradient(135deg, rgba(184,147,90,0.08), rgba(31,59,50,0.25)); border:1px solid var(--line); padding:20px 24px; }
+  .kpi-box .lbl{ font-family:'IBM Plex Mono', monospace; font-size:10px; color:var(--brass-bright); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+  .kpi-box p{ color:var(--text-hi); font-size:14.5px; }
+  .closing{ text-align:center; padding:100px 0 80px; }
+  .position-eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--text-dim); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:20px; }
+  .closing h2{ font-size:clamp(24px, 3.6vw, 34px); margin-bottom:16px; }
+  .closing p{ color:var(--text-mid); max-width:540px; margin:0 auto 36px; font-size:15px; }
+  .signoff{ display:flex; align-items:center; justify-content:center; gap:14px; margin-top:44px; }
+  .signoff .octo-mark svg{ width:22px; height:22px; }
+  footer{ text-align:center; padding:36px 0 56px; color:var(--text-dim); font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.08em; }
+  .reveal{ opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } html{ scroll-behavior:auto; } }
+  @media (max-width: 820px){ table.data-table{ display:block; overflow-x:auto; white-space:nowrap; } }
+  @media (max-width: 520px){ .wrap{ padding:0 20px; } .sec{ padding:60px 0; } }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--brass-bright); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<div class="ink-bg"></div>
+
+<div class="brandbar">
+  <div class="octo-mark">
+    <svg viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="16" r="9" stroke="var(--brass-bright)" stroke-width="1.6"/>
+      <path d="M11 20 Q6 24 8 30 Q10 34 13 30" stroke="var(--brass-bright)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M15 23 Q12 29 15 34" stroke="var(--brass-bright)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M20 24 Q20 31 20 36" stroke="var(--brass-bright)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M25 23 Q28 29 25 34" stroke="var(--brass-bright)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M29 20 Q34 24 32 30 Q30 34 27 30" stroke="var(--brass-bright)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+    </svg>
+    <span>OCTOPUS COMMUNITY</span>
+  </div>
+  <div class="tag">GROWTH PLAN · CONFIDENTIAL</div>
+</div>
+
+<section class="hero wrap">
+  <div class="eyebrow">رؤية استراتيجية للنمو</div>
+  <h1>خطة النمو الكاملة — أول ٩٠ يوماً
+    <span class="en">90-Day Growth Plan — The Royal Lounge</span>
+  </h1>
+  <p class="subline">خطة متكاملة تمنح The Royal Lounge الثقل التجاري الذي يليق بإرثها، وتحوّل كل ساعة من اليوم إلى فرصة حقيقية للحضور والولاء، دون أن تتنازل عن قيمتها للحظة واحدة.</p>
+  <div class="prepared">
+    <div class="prepared-item"><div class="k">إعداد</div><div class="v">Octopus Community</div></div>
+    <div class="prepared-item"><div class="k">لصالح</div><div class="v">The Royal Lounge — شارع التسعين</div></div>
+    <div class="prepared-item"><div class="k">المدة</div><div class="v">٩٠ يوماً</div></div>
+  </div>
+</section>
+
+<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
+  <path d="M0,50 C160,20 260,85 420,50 C580,20 680,85 840,50 C930,32 1000,62 1080,45" stroke="var(--line)" stroke-width="1" fill="none"/>
+  <circle cx="420" cy="50" r="3" fill="var(--brass)"/>
+</svg>
+
+<!-- 00 IDEA -->
+<section class="sec wrap" id="idea">
+  <div class="sec-head reveal"><h2>الفكرة الجوهرية</h2><span class="sec-num">٠٠</span></div>
+  <p class="sec-lead reveal">علامة بحجم The Royal Lounge لا تُبنى بالإعلانات وحدها. هي تُبنى بثقل يُرى قبل أن يُقرأ، وبثقة تُروى من أفواه عملائها قبل أن تُعلَن. هذه الخطة تجمع بين الاثنين معاً، وتضيف إليهما هندسة دقيقة لكل توقيت في اليوم.</p>
+  <div class="why-box reveal">
+    <div class="lbl">الركائز الثلاث للخطة</div>
+    <p>نُرسّخ صورة تعكس فخامة حقيقية لا شعارات، نمنح الثقة مساحة لتنتقل من عميل إلى عميل بعفوية، ونحوّل كل توقيت في اليوم — من الصباح الهادئ إلى ذروة الليل — إلى قيمة تجارية مقصودة.</p>
+  </div>
+</section>
+
+<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
+  <path d="M0,45 C180,80 260,10 440,45 C600,82 680,15 860,45 C940,62 1010,35 1080,50" stroke="var(--line)" stroke-width="1" fill="none"/>
+</svg>
+
+<!-- 01 POSITIONING -->
+<section class="sec wrap" id="positioning">
+  <div class="sec-head reveal"><h2>الهوية وثقل الإرث</h2><span class="sec-num">٠١</span></div>
+  <p class="sec-lead reveal">خمسة وثلاثون عاماً من الوجود الفعلي ليست رقماً يُذكر في سطر تعريفي، بل ميزة تنافسية لا يملك أي منافس في شارع التسعين القدرة على تكرارها، مهما بلغت ميزانيته. مهمتنا ليست أن نُعلن هذا الإرث، بل أن نجعله محسوساً في كل تفصيلة.</p>
+
+  <div class="why-box reveal">
+    <div class="lbl">الفرق بين مكان يقول إنه فاخر ومكان يُشعرك بذلك</div>
+    <p>لا يكمن في الكلمات، بل في التفاصيل التي لا يلتفت إليها الوعي لكنها تترك أثرها: زاوية الإضاءة، إيقاع اللقطة، اللحظة التي يُوضع فيها الطبق على الطاولة. هذه التفاصيل، حين تتكرر بانضباط، تبني هيبة لا تحتاج إلى تأكيد.</p>
+  </div>
+
+  <div class="h3-block reveal">نبرة مخصصة لكل مساحة داخل The Royal Lounge</div>
+  <table class="data-table reveal">
+    <thead><tr><th>المساحة</th><th>النبرة الحاكمة</th></tr></thead>
+    <tbody>
+      <tr><td class="key-col">الكافيه والفطار</td><td>هدوء واثق، بلا استعجال ظاهر</td></tr>
+      <tr><td class="key-col">قاعة رجال الأعمال</td><td>احترام مباشر، بلا كلمة زائدة</td></tr>
+      <tr><td class="key-col">المطعم الفاخر والعشاء</td><td>دفء أعمق، وتفاصيل أغنى</td></tr>
+      <tr><td class="key-col">ليالي السهر</td><td>طاقة أعلى، مصانة بالرقي لا مُستهلَكة به</td></tr>
+    </tbody>
+  </table>
+
+  <div class="why-box reveal">
+    <div class="lbl">معيار بصري سينمائي واحد لا يتغير</div>
+    <p>تختلف النبرة باختلاف المساحة، لكن مستوى الجودة البصرية — الإضاءة، زاوية الكادر، الإحساس السينمائي — يبقى ثابتاً في كل مكان. من يشاهد المحتوى يجب أن يتعرف على The Royal Lounge فوراً، بصرف النظر عن المساحة التي صُوِّر فيها.</p>
+  </div>
+</section>
+
+<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
+  <path d="M0,50 C160,20 260,85 420,50 C580,20 680,85 840,50 C930,32 1000,62 1080,45" stroke="var(--line)" stroke-width="1" fill="none"/>
+</svg>
+
+<!-- 02 CONTENT PILLARS -->
+<section class="sec wrap" id="pillars">
+  <div class="sec-head reveal"><h2>محاور المحتوى</h2><span class="sec-num">٠٢</span></div>
+  <p class="sec-lead reveal">يتوزع كل ما يُنشر على ثلاثة محاور، لكل منها دور لا يتقاطع مع الآخر.</p>
+
+  <table class="data-table reveal">
+    <thead><tr><th>المحور</th><th>الوظيفة</th></tr></thead>
+    <tbody>
+      <tr><td class="key-col">الإرث</td><td>تفاصيل حقيقية من القصة، تتراكم عبر الوقت ولا تُقال دفعة واحدة</td></tr>
+      <tr><td class="key-col">التجربة</td><td>اللحظة الفعلية داخل المكان — الطعام، الأجواء، الخدمة — بلا خطاب تسويقي مباشر</td></tr>
+      <tr><td class="key-col">الإثبات</td><td>تقييم ٤.٨ من ١٣٥ مراجعة، يتحول إلى شهادات حية من عملاء حقيقيين</td></tr>
+    </tbody>
+  </table>
+
+  <div class="why-box reveal">
+    <div class="lbl">قاعدة حاكمة</div>
+    <p>الفخامة التي تشرح نفسها كثيراً تفقد قيمتها. أقوى محتوى فاخر هو الذي يُري ولا يُخبر، ويترك للمشاهد مساحة ليصل إلى النتيجة بنفسه.</p>
+  </div>
+</section>
+
+<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
+  <path d="M0,45 C180,80 260,10 440,45 C600,82 680,15 860,45 C940,62 1010,35 1080,50" stroke="var(--line)" stroke-width="1" fill="none"/>
+</svg>
+
+<!-- 03 PRODUCTION -->
+<section class="sec wrap" id="production">
+  <div class="sec-head reveal"><h2>الإنتاج البصري</h2><span class="sec-num">٠٣</span></div>
+  <p class="sec-lead reveal">لا نتعامل مع التصوير كمهمة تُنجز عند الحاجة، بل كبنية إنتاجية ثابتة: يومان كاملان من التصوير السينمائي الاحترافي كل أسبوع، يُخصص كل منهما لغرض مختلف تماماً، ليُشكّلا معاً مكتبة أصول بصرية فاخرة تُغذي كل حساب على مدار الوقت.</p>
+
+  <table class="data-table reveal">
+    <thead><tr><th>اليوم الثابت</th><th>الجوهر</th><th>ما يُلتقط</th></tr></thead>
+    <tbody>
+      <tr><td class="key-col">اليوم الأول<br><span style="font-size:11px; color:var(--text-dim); font-weight:400;">Culinary Styling &amp; Craft</span></td><td>حرفية الطهي وتفاصيل الطبق</td><td>نصوّر لحظة التحضير نفسها بجودة سينمائية — زوايا الإضاءة المدروسة، نسيج الطبق، البخار، اللحظة التي تسبق وصوله إلى الطاولة، بما يُظهر كل قطعة كعمل حِرفي لا وجبة عابرة</td></tr>
+      <tr><td class="key-col">اليوم الثاني<br><span style="font-size:11px; color:var(--text-dim); font-weight:400;">Ambiance &amp; Event Experience</span></td><td>روح المكان وحضوره الحي</td><td>تغطية الفعالية الحية الأسبوعية بأجوائها الفعلية، بلقطات تنقل الحيوية والرقي كما يعيشهما الحضور، لا كما تُدبَّج في استوديو</td></tr>
+    </tbody>
+  </table>
+
+  <div class="why-box reveal">
+    <div class="lbl">مكتبة أصول بصرية، لا محتوى استهلاكي</div>
+    <p>الهدف من انتظام اليومين ليس إنتاج محتوى فحسب، بل بناء مكتبة متراكمة من الأصول البصرية الفاخرة تُغذي إنستجرام وتيك توك والإعلانات المدفوعة معاً، وترفع القيمة المُدرَكة للبراند مع كل إصدار جديد، بدل أن تُستهلك سريعاً وتُنسى.</p>
+  </div>
+</section>
+
+<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
+  <path d="M0,50 C160,20 260,85 420,50 C580,20 680,85 840,50 C930,32 1000,62 1080,45" stroke="var(--line)" stroke-width="1" fill="none"/>
+</svg>
+
+<!-- 04 UGC -->
+<section class="sec wrap" id="ugc">
+  <div class="sec-head reveal"><h2>ثقة الجمهور ومحتوى العملاء</h2><span class="sec-num">٠٤</span></div>
+  <p class="sec-lead reveal">الثقة التي يُحدثها عميل حقيقي يتحدث عن تجربته الفعلية، لا يصنع مثلها أي إعلان مدفوع. جمهور التجمع الخامس بات واعياً بما يكفي ليُميّز اللحظة المُفتعلة من اللحظة الصادقة، وهنا يكمن دور استراتيجية إشراك صنّاع المحتوى.</p>
+
+  <div class="why-box reveal">
+    <div class="lbl">هندسة العفوية</div>
+    <p>نُشرك مجموعة مختارة من صنّاع المحتوى والذوّاقة (Taste-Makers) ممن يتوافق حضورهم مع تموضع البراند، ونمنحهم إطاراً موجَّهاً بدقة يتيح لهم التقاط تجربتهم بعفوية حقيقية، دون أن تتحول اللقطة إلى إعلان مباشر يفقد مصداقيته.</p>
+  </div>
+
+  <table class="data-table reveal">
+    <thead><tr><th>محور التجربة</th><th>الجمهور المستهدف</th></tr></thead>
+    <tbody>
+      <tr><td class="key-col">الفطار والـBusiness Lounge</td><td>من يبحث عن مساحة تعكس صورته المهنية</td></tr>
+      <tr><td class="key-col">جودة الطعام وحرفيته</td><td>من يبحث عن عمق التجربة وتفاصيلها</td></tr>
+      <tr><td class="key-col">أجواء السهرات والفعاليات الحية</td><td>من يبحث عن المكان الذي يجتمع فيه أقرانه</td></tr>
+    </tbody>
+  </table>
+
+  <div class="why-box reveal">
+    <div class="lbl">من محتوى عفوي إلى إعلان عالي التحويل</div>
+    <p>أقوى اللقطات الناتجة عن هذه الاستراتيجية لا تُترك للنشر العضوي وحده — يُعاد توظيفها كإعلانات مستهدفة بصيغة Dark Posting، تظهر للجمهور كمنشور طبيعي في تدفقه اليومي لا كرسالة تسويقية، وهو ما يمنحها معدل تحويل أعلى بكثير من الإعلان التقليدي، لأنها تحمل مصداقية العميل الحقيقي لا صوت البراند وحده.</p>
+  </div>
+</section>
+
+<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
+  <path d="M0,45 C180,80 260,10 440,45 C600,82 680,15 860,45 C940,62 1010,35 1080,50" stroke="var(--line)" stroke-width="1" fill="none"/>
+</svg>
+
+<!-- 05 IN-VENUE -->
+<section class="sec wrap" id="invenue">
+  <div class="sec-head reveal"><h2>تجربة العميل داخل المكان</h2><span class="sec-num">٠٥</span></div>
+  <p class="sec-lead reveal">يجلب المحتوى الزيارة الأولى، لكن الإحساس الفعلي داخل المكان هو ما يقرر إن كانت ستتكرر. حين يتطابق ما يراه الزائر عبر الشاشة مع ما يعيشه فعلياً بين الجدران، يتحول تلقائياً إلى سفير للبراند دون أن يُطلب منه ذلك.</p>
+
+  <div class="why-box reveal">
+    <div class="lbl">قاعة رجال الأعمال كامتياز انتماء، لا مجرد خدمة</div>
+    <p>يجب أن تُشعر القاعة مرتادها بأنه جزء من دائرة ضيقة تضم من هم على مستواه، لا مجرد عميل يستخدم مساحة عمل. هذا الإحساس بالانتماء هو ما يدفعه للعودة حتى في أوقات النهار الهادئة، لأنه لا يأتي فقط للعمل، بل ليتواجد وسط من يشبهونه.</p>
+  </div>
+</section>
+
+<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
+  <path d="M0,50 C160,20 260,85 420,50 C580,20 680,85 840,50 C930,32 1000,62 1080,45" stroke="var(--line)" stroke-width="1" fill="none"/>
+</svg>
+
+<!-- 06 OFF-PEAK -->
+<section class="sec wrap" id="offpeak">
+  <div class="sec-head reveal"><h2>استثمار الساعات الميتة</h2><span class="sec-num">٠٦</span></div>
+  <p class="sec-lead reveal">المشكلة ليست في غياب الوعي بأن المكان مفتوح صباحاً، بل في غياب عرض مصمَّم خصيصاً لهذا التوقيت. الحل هنا منتجي بالدرجة الأولى، لا إعلاني.</p>
+
+  <table class="data-table reveal">
+    <thead><tr><th>التوقيت</th><th>الجمهور</th><th>ما نقدمه</th></tr></thead>
+    <tbody>
+      <tr><td class="key-col">الصباح (٩–١٢)</td><td>رجال أعمال ومستقلون يبحثون عن بداية يوم منظمة</td><td>الـBusiness Lounge كبيئة عمل فاخرة، لا مجرد وجبة فطور</td></tr>
+      <tr><td class="key-col">الظهيرة (١٢–٤)</td><td>عائلات واجتماعات عمل قصيرة</td><td>تجربة غداء مُنظّمة بإيقاع أسرع من العشاء</td></tr>
+      <tr><td class="key-col">منتصف الأسبوع مساءً</td><td>عملاء يبحثون عن الهدوء</td><td>نقدّم الوقت الهادئ كامتياز، لا كضعف في الإقبال</td></tr>
+      <tr><td class="key-col">الليل وعطلة الأسبوع</td><td>محبو الأجواء الحية والشيشة</td><td>التجربة الاجتماعية الكاملة كما هي</td></tr>
+    </tbody>
+  </table>
+
+  <div class="h3-block reveal">تسعير ذكي لا يمس قيمة البراند</div>
+  <p class="reveal" style="color:var(--text-mid); font-size:14.5px; max-width:740px; margin-bottom:20px;">القاعدة الحاكمة: لا خصومات، بل إضافات قيمة. الخصم يُخبر العميل أن قيمة المنتج أقل. الإضافة تُخبره أن هذا التوقيت صُمم خصيصاً من أجله.</p>
+
+  <table class="data-table reveal">
+    <thead><tr><th>الآلية</th><th>لماذا تنجح</th></tr></thead>
+    <tbody>
+      <tr><td class="key-col">باقات الشركات القريبة</td><td>اجتماعات صباحية وضيافة عملاء — القيمة هنا في الوقت والتنظيم، لا في السعر الأقل</td></tr>
+      <tr><td class="key-col">مساحة العمل الممتد</td><td>إنترنت مخصص وإيقاع خدمة يناسب الجلسات الطويلة، بتسعير يعكس قيمة المساحة لا الوجبة</td></tr>
+      <tr><td class="key-col">الندرة بدل الخصم</td><td>تجربة مميزة بعدد مقاعد محدود في التوقيت الهادئ، بدل خصم عادي يفقد المكان تمايزه</td></tr>
+    </tbody>
+  </table>
+
+  <div class="kpi-box reveal">
+    <div class="lbl">مؤشر القياس</div>
+    <p>نسبة الإشغال في الأوقات الهادئة. نبدأ برصد الأرقام الحالية بدقة خلال أول أسبوعين، ثم نضع هدفاً واقعياً مبنياً عليها.</p>
+  </div>
+</section>
+
+<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
+  <path d="M0,45 C180,80 260,10 440,45 C600,82 680,15 860,45 C940,62 1010,35 1080,50" stroke="var(--line)" stroke-width="1" fill="none"/>
+</svg>
+
+<!-- 07 RETENTION -->
+<section class="sec wrap" id="ltv">
+  <div class="sec-head reveal"><h2>استبقاء العملاء وبناء الولاء</h2><span class="sec-num">٠٧</span></div>
+  <p class="sec-lead reveal">مطعم فاخر بميزانية محدودة نسبياً لا يملك ترف مطاردة عملاء جدد باستمرار. الأولوية الحقيقية لمن يعود. عميل يزور المكان ثماني مرات في العام يفوق قيمة ثلاثة عملاء يزورونه مرة واحدة فقط.</p>
+
+  <table class="data-table reveal">
+    <thead><tr><th>الفئة</th><th>سبب المجيء</th><th>سبب العودة</th></tr></thead>
+    <tbody>
+      <tr><td class="key-col">رجال أعمال ومستقلون</td><td>حاجة عملية للعمل</td><td>يعودون حين يصبح لهم يوم ثابت في الأسبوع</td></tr>
+      <tr><td class="key-col">العائلات</td><td>مناسبات خاصة</td><td>يعودون حين يرتبط المكان بذكريات حقيقية</td></tr>
+      <tr><td class="key-col">عشاق الطعام</td><td>التجربة نفسها</td><td>يعودون حين تتجدد القائمة وتحمل ما يستحق التجربة</td></tr>
+      <tr><td class="key-col">محبو الأجواء الحية</td><td>الحضور الاجتماعي</td><td>يعودون حين يشعرون بالانتماء للمكان ولمن فيه</td></tr>
+    </tbody>
+  </table>
+
+  <div class="h3-block reveal">أول ثلاث زيارات هي النافذة الحاسمة</div>
+  <div class="why-box reveal">
+    <div class="lbl">إزاي نصنع العودة</div>
+    <p>حين يزور العميل المكان ثلاث مرات خلال أول شهرين، ترتفع احتمالية تحوله إلى عميل دائم بشكل ملحوظ. لهذا، يجب أن تنتهي كل زيارة أولى بسبب واضح للعودة، لا بشكر عابر فحسب. وبرنامج الولاء الأنسب هنا لا يقوم على النقاط والخصومات — فهذا يمس قيمة البراند الفاخر — بل على امتيازات حقيقية: طاولة مفضلة، أولوية تجربة الجديد، دعوات حصرية.</p>
+  </div>
+
+  <div class="kpi-box reveal">
+    <div class="lbl">مؤشر القياس</div>
+    <p>نسبة العملاء العائدين خلال شهرين من الزيارة الأولى، ونسبة من يصلون لثلاث زيارات في أول ٩٠ يوماً. هذا أهم من عدد العملاء الجدد وحده.</p>
+  </div>
+</section>
+
+<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
+  <path d="M0,50 C160,20 260,85 420,50 C580,20 680,85 840,50 C930,32 1000,62 1080,45" stroke="var(--line)" stroke-width="1" fill="none"/>
+</svg>
+
+<!-- 08 PLATFORMS -->
+<section class="sec wrap" id="content">
+  <div class="sec-head reveal"><h2>توحيد الهوية على كل المنصات</h2><span class="sec-num">٠٨</span></div>
+  <p class="sec-lead reveal">أي تفاوت بين المنصات — شعار مختلف، ألوان متضاربة — يهدم الجهد المبذول في كل محور آخر من هذه الخطة. المعايير يجب أن تكون واحدة في كل مكان.</p>
+
+  <table class="data-table reveal">
+    <thead><tr><th>المنصة</th><th>الوضع الحالي</th><th>الاتجاه</th></tr></thead>
+    <tbody>
+      <tr><td class="key-col">إنستجرام</td><td><span class="pill" style="background:rgba(127,168,138,0.12); color:var(--ok);">مقبولة</span></td><td>نعمّق العلاقة مع الجمهور الموجود بالفعل</td></tr>
+      <tr><td class="key-col">فيسبوك</td><td><span class="pill" style="background:rgba(193,102,63,0.12); color:var(--coral);">تحتاج إعادة تأسيس</span></td><td>نبدأ بتنظيف الصفحة، ونركز على تفاعل حقيقي قبل أي محاولة لزيادة الأرقام</td></tr>
+      <tr><td class="key-col">تيك توك</td><td><span class="pill" style="background:rgba(184,147,90,0.12); color:var(--brass-bright);">فرصة نمو</span></td><td>المنصة تكافئ اللحظة القوية بصرياً، فننشر فيها بمعدل أعلى</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
+  <path d="M0,45 C180,80 260,10 440,45 C600,82 680,15 860,45 C940,62 1010,35 1080,50" stroke="var(--line)" stroke-width="1" fill="none"/>
+</svg>
+
+<!-- 09 PAID -->
+<section class="sec wrap" id="paid">
+  <div class="sec-head reveal"><h2>الإعلانات المدفوعة</h2><span class="sec-num">٠٩</span></div>
+  <p class="sec-lead reveal">عميل هذه الفئة لا يتخذ قرار الحجز من إعلان واحد يراه عابراً. رحلته أطول، وحساسيته للثقة أعلى من أي قطاع آخر.</p>
+
+  <table class="data-table reveal">
+    <thead><tr><th>المرحلة</th><th>الغرض منها</th></tr></thead>
+    <tbody>
+      <tr><td class="key-col">التعريف</td><td>نُعرّف جمهوراً واسعاً بالقصة والتجربة — الهدف هنا بناء الوعي، لا الحجز الفوري</td></tr>
+      <tr><td class="key-col">الاهتمام</td><td>نستهدف من تفاعل مسبقاً برسائل أعمق، تكشف تفاصيل التجربة والـBusiness Lounge</td></tr>
+      <tr><td class="key-col">الحجز</td><td>نستهدف الأقرب لقرار الحجز برسالة مباشرة تدفعه للحسم</td></tr>
+    </tbody>
+  </table>
+
+  <div class="h3-block reveal">الاستهداف الجغرافي المحلي</div>
+  <table class="data-table reveal">
+    <thead><tr><th>الدائرة</th><th>الجمهور</th></tr></thead>
+    <tbody>
+      <tr><td class="key-col">الدائرة الأقرب</td><td>المترددون المحتملون يومياً، وتحديداً لشغل الـBusiness Lounge</td></tr>
+      <tr><td class="key-col">الدائرة الأوسع</td><td>زوار المناسبات من الكومباوندات المجاورة</td></tr>
+      <tr><td class="key-col">إعادة الاستهداف</td><td>من زار الموقع أو تفاعل مع المحتوى ولم يحجز بعد</td></tr>
+    </tbody>
+  </table>
+
+  <div class="kpi-box reveal">
+    <div class="lbl">مؤشر القياس</div>
+    <p>تكلفة اكتساب العميل الجديد مقارنة بمتوسط الفاتورة، ونسبة التحويل في كل مرحلة من مراحل الرحلة — لا عدد المشاهدات أو الإعجابات وحده.</p>
+  </div>
+</section>
+
+<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
+  <path d="M0,50 C160,20 260,85 420,50 C580,20 680,85 840,50 C930,32 1000,62 1080,45" stroke="var(--line)" stroke-width="1" fill="none"/>
+</svg>
+
+<!-- 10 TIMELINE -->
+<section class="sec wrap" id="timeline">
+  <div class="sec-head reveal"><h2>خريطة الطريق لتسعين يوماً</h2><span class="sec-num">١٠</span></div>
+  <p class="sec-lead reveal">ثلاث مراحل متعاقبة، تبني كل واحدة منها على بيانات حقيقية من سابقتها، لا على افتراضات.</p>
+
+  <table class="data-table reveal">
+    <thead><tr><th>الشهر</th><th>محاور العمل</th><th>مؤشرات النجاح</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="key-col">الأول</td>
+        <td>معالجة الفجوات التقنية (الهوية، الحسابات غير الحقيقية، الموقع)، توحيد المعايير البصرية، إطلاق أول موجة من محتوى الإرث، ورصد أرقام الإشغال الحالية بدقة</td>
+        <td>اكتمال المعالجة التقنية، وتوفر خط أساس واضح نقيس عليه لاحقاً</td>
+      </tr>
+      <tr>
+        <td class="key-col">الثاني</td>
+        <td>تفعيل يومي التصوير الأسبوعيين، إطلاق باقات الأوقات الهادئة، بدء أول موجة تعاون مع صنّاع المحتوى، وتشغيل الحملات الإعلانية بمراحلها الثلاث</td>
+        <td>تحسن ملموس في إشغال الأوقات الهادئة، وأولى مؤشرات نمو الثقة العضوية</td>
+      </tr>
+      <tr>
+        <td class="key-col">الثالث</td>
+        <td>تكثيف توزيع مكتبة المحتوى، تحويل أقوى مقاطع الـUGC إلى إعلانات، إطلاق برنامج الولاء الكامل، وإعادة توزيع الاستثمار نحو الأقنية الأعلى عائداً</td>
+        <td>نسبة الإشغال الإجمالية، نسبة العملاء بثلاث زيارات فأكثر، ونسبة الزوار القادمين عبر محتوى لا إعلان مباشر</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="closing wrap reveal">
+  <div class="position-eyebrow">Octopus Community</div>
+  <h2>القصة موجودة بالفعل.<br>هذه الخطة كيف تُروى صح، وتُرى صح، في كل موضع.</h2>
+  <p>هذا هو الإطار الاستراتيجي الكامل بمنطقه ومؤشراته. الأصول التنفيذية — السكريبتات، خطط الإضاءة، وقوائم صنّاع المحتوى — تظل جزءاً من مرحلة التنفيذ بعد التعاقد.</p>
+  <div class="signoff">
+    <div class="octo-mark">
+      <svg viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="16" r="9" stroke="var(--brass-bright)" stroke-width="1.6"/>
+        <path d="M11 20 Q6 24 8 30 Q10 34 13 30" stroke="var(--brass-bright)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M15 23 Q12 29 15 34" stroke="var(--brass-bright)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M20 24 Q20 31 20 36" stroke="var(--brass-bright)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M25 23 Q28 29 25 34" stroke="var(--brass-bright)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M29 20 Q34 24 32 30 Q30 34 27 30" stroke="var(--brass-bright)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span>OCTOPUS COMMUNITY</span>
+    </div>
+  </div>
+</section>
+
+<footer>NEW CAIRO — EGYPT · 90-DAY GROWTH PLAN · CONFIDENTIAL</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  els.forEach(el=>obs.observe(el));
+</script>
+
+</body>
+</html>
