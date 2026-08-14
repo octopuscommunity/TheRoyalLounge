@@ -20,9 +20,15 @@
   h1,h2,h3,h4,.display{ font-family:'Cairo', sans-serif; font-weight:800; letter-spacing:-0.01em; }
   .mono{ font-family:'IBM Plex Mono', monospace; letter-spacing:0.06em; }
   .wrap{ max-width:1080px; margin:0 auto; padding:0 32px; }
-  .ink-bg{ position:fixed; inset:0; z-index:0; pointer-events:none;
+  .ink-bg{ position:fixed; inset:0; z-index:0; pointer-events:none; background-color:var(--ink-900); }
+  .ink-bg::before{ content:''; position:absolute; inset:0;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-    opacity:0.6; background-color:var(--ink-900); }
+    opacity:0.6; }
+  .ink-bg::after{ content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 900px 600px at 12% 8%, rgba(184,241,11,0.05), transparent 60%),
+      radial-gradient(ellipse 800px 700px at 88% 55%, rgba(184,241,11,0.035), transparent 65%),
+      radial-gradient(ellipse 700px 500px at 15% 95%, rgba(184,241,11,0.04), transparent 60%); }
   section{ position:relative; z-index:1; }
   .brandbar{ position:fixed; top:0; right:0; left:0; z-index:50; display:flex; align-items:center; justify-content:space-between;
     padding:20px 32px; background:linear-gradient(to bottom, rgba(8,19,16,0.92), rgba(8,19,16,0)); backdrop-filter:blur(2px); }
@@ -41,16 +47,18 @@
   .hero .prepared{ margin-top:48px; display:flex; gap:40px; flex-wrap:wrap; }
   .prepared-item .k{ font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:6px; }
   .prepared-item .v{ font-family:'Cairo', sans-serif; font-weight:600; font-size:15px; color:var(--text-hi); }
-  .ink-divider{ width:100%; height:100px; display:block; margin:0; }
-  .sec{ padding:84px 0; border-top:1px solid var(--line); }
+  .sec{ padding:56px 0; border-top:1px solid var(--line); position:relative; }
+  .sec::before{ content:''; position:absolute; top:-1px; left:50%; transform:translateX(-50%);
+    width:5px; height:5px; border-radius:50%; background:var(--brass);
+    box-shadow:0 0 12px 3px rgba(184,241,11,0.45); }
   .sec-head{ display:flex; align-items:baseline; justify-content:space-between; gap:24px; margin-bottom:18px; flex-wrap:wrap; }
   .sec-head h2{ font-size:clamp(23px, 3.2vw, 32px); color:var(--text-hi); }
   .sec-num{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--brass); letter-spacing:0.1em; white-space:nowrap; }
   .sec-lead{ font-size:16px; color:var(--text-mid); max-width:740px; margin-bottom:16px; }
-  .why-box{ background:var(--panel-2); border-right:2px solid var(--brass); padding:20px 24px; margin:24px 0 38px; max-width:780px; }
+  .why-box{ background:var(--panel-2); border-right:2px solid var(--brass); padding:18px 22px; margin:20px 0 28px; max-width:780px; }
   .why-box .lbl{ font-family:'IBM Plex Mono', monospace; font-size:10px; color:var(--brass-bright); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
   .why-box p{ color:var(--text-mid); font-size:14.5px; }
-  .h3-block{ font-size:18px; color:var(--text-hi); margin:40px 0 16px; }
+  .h3-block{ font-size:18px; color:var(--text-hi); margin:32px 0 14px; }
   table.data-table{ width:100%; border-collapse:collapse; margin-bottom:8px; }
   table.data-table th{ text-align:right; font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.08em;
     text-transform:uppercase; color:var(--text-dim); padding:11px 14px; border-bottom:1px solid var(--line); font-weight:400; }
@@ -58,10 +66,10 @@
   table.data-table td.key-col{ color:var(--text-hi); font-family:'Cairo', sans-serif; font-weight:700; font-size:14.5px; white-space:nowrap; }
   table.data-table tr:last-child td{ border-bottom:none; }
   .pill{ display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:9.5px; padding:3px 9px; border-radius:2px; letter-spacing:0.05em; }
-  .kpi-box{ margin-top:28px; background:linear-gradient(135deg, rgba(184,241,11,0.08), rgba(255,255,255,0.03)); border:1px solid var(--line); padding:20px 24px; }
+  .kpi-box{ margin-top:20px; background:linear-gradient(135deg, rgba(184,241,11,0.08), rgba(255,255,255,0.03)); border:1px solid var(--line); padding:20px 24px; }
   .kpi-box .lbl{ font-family:'IBM Plex Mono', monospace; font-size:10px; color:var(--brass-bright); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
   .kpi-box p{ color:var(--text-hi); font-size:14.5px; }
-  .closing{ text-align:center; padding:100px 0 80px; }
+  .closing{ text-align:center; padding:72px 0 64px; }
   .position-eyebrow{ font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--text-dim); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:20px; }
   .closing h2{ font-size:clamp(24px, 3.6vw, 34px); margin-bottom:16px; }
   .closing p{ color:var(--text-mid); max-width:540px; margin:0 auto 36px; font-size:15px; }
@@ -72,7 +80,7 @@
   .reveal.in{ opacity:1; transform:translateY(0); }
   @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } html{ scroll-behavior:auto; } }
   @media (max-width: 820px){ table.data-table{ display:block; overflow-x:auto; white-space:nowrap; } }
-  @media (max-width: 520px){ .wrap{ padding:0 20px; } .sec{ padding:60px 0; } }
+  @media (max-width: 520px){ .wrap{ padding:0 20px; } .sec{ padding:40px 0; } }
   /* ── AGENCY BAR (format adopted from index.html) ── */
   .agency-bar{ background:var(--ink-900); border-bottom:1px solid var(--line); padding:10px 32px;
     display:flex; align-items:center; justify-content:space-between; direction:ltr;
@@ -86,7 +94,7 @@
   .header-accent-line{ position:absolute; top:0; left:0; right:0; height:2px; background:var(--brass); }
   .header-glow{ position:absolute; top:-80px; right:-80px; width:400px; height:400px;
     background:radial-gradient(circle, rgba(184,241,11,0.06) 0%, transparent 70%); pointer-events:none; }
-  .header-inner{ padding:56px 0 44px; position:relative; z-index:2; }
+  .header-inner{ padding:44px 0 36px; position:relative; z-index:2; }
   .header-headline{ font-family:'Tajawal', sans-serif; font-size:clamp(28px, 5vw, 50px); font-weight:900;
     line-height:1.2; color:var(--text-hi); margin-bottom:14px; }
   .headline-accent{ color:var(--brass); }
@@ -119,6 +127,17 @@
     .footer-inner{ flex-direction:column; align-items:flex-start; }
   }
 
+  /* ── LANGUAGE TOGGLE ── */
+  .i18n-en{ display:none; }
+  body.lang-en .i18n-en{ display:inline; }
+  body.lang-en .i18n-ar{ display:none; }
+  .lang-toggle{ font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:0.08em; color:var(--brass);
+    background:transparent; border:1px solid var(--line); border-radius:3px; padding:5px 12px; cursor:pointer;
+    text-transform:uppercase; transition:background .2s ease, border-color .2s ease; }
+  .lang-toggle:hover{ background:rgba(184,241,11,0.08); border-color:var(--brass); }
+  [dir="ltr"] table.data-table th{ text-align:left; }
+  [dir="ltr"] .why-box{ border-right:none; border-left:2px solid var(--brass); }
+
   a:focus-visible, button:focus-visible{ outline:2px solid var(--brass-bright); outline-offset:3px; }
 </style>
 </head>
@@ -128,7 +147,10 @@
 
 <div class="agency-bar">
   <img src="data:image/jpeg;base64,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" alt="Octopus Community" class="agency-logo">
-  <span class="agency-client">Prepared for <span>The Royal Lounge</span></span>
+  <div style="display:flex; align-items:center; gap:16px;">
+    <span class="agency-client">Prepared for <span>The Royal Lounge</span></span>
+    <button id="langToggle" class="lang-toggle" onclick="toggleLang()" type="button">EN</button>
+  </div>
 </div>
 
 <header class="site-header">
@@ -136,12 +158,12 @@
   <div class="header-glow"></div>
   <div class="wrap">
     <div class="header-inner">
-      <h1 class="header-headline">خطة النمو الكاملة — <span class="headline-accent">أول ٩٠ يوماً</span></h1>
-      <p class="header-sub-text">90-Day Growth Plan — The Royal Lounge<br>خطة متكاملة تمنح The Royal Lounge الثقل التجاري الذي يليق بمكانتها، وتحوّل كل ساعة من اليوم إلى فرصة حقيقية للحضور والولاء، دون أن تتنازل عن قيمتها للحظة واحدة.</p>
+      <h1 class="header-headline"><span class="i18n-ar">خطة النمو الكاملة — <span class="headline-accent">أول ٩٠ يوماً</span></span><span class="i18n-en">The Complete Growth Plan — <span class="headline-accent">First 90 Days</span></span></h1>
+      <p class="header-sub-text">90-Day Growth Plan — The Royal Lounge<br><span class="i18n-ar">خطة متكاملة تمنح The Royal Lounge الثقل التجاري الذي يليق بمكانتها، وتحوّل كل ساعة من اليوم إلى فرصة حقيقية للحضور والولاء، دون أن تتنازل عن قيمتها للحظة واحدة.</span><span class="i18n-en">A complete plan that gives The Royal Lounge the commercial weight worthy of its standing, turning every hour of the day into a real opportunity for presence and loyalty — without compromising its value for a single moment.</span></p>
       <div class="header-prepared">
-        <div class="hp-item"><div class="hp-k">إعداد</div><div class="hp-v">Octopus Community</div></div>
-        <div class="hp-item"><div class="hp-k">لصالح</div><div class="hp-v">The Royal Lounge — شارع التسعين</div></div>
-        <div class="hp-item"><div class="hp-k">المدة</div><div class="hp-v">٩٠ يوماً</div></div>
+        <div class="hp-item"><div class="hp-k"><span class="i18n-ar">إعداد</span><span class="i18n-en">Prepared by</span></div><div class="hp-v">Octopus Community</div></div>
+        <div class="hp-item"><div class="hp-k"><span class="i18n-ar">لصالح</span><span class="i18n-en">Prepared for</span></div><div class="hp-v">The Royal Lounge — <span class="i18n-ar">شارع التسعين</span><span class="i18n-en">90th Street</span></div></div>
+        <div class="hp-item"><div class="hp-k"><span class="i18n-ar">المدة</span><span class="i18n-en">Duration</span></div><div class="hp-v"><span class="i18n-ar">٩٠ يوماً</span><span class="i18n-en">90 Days</span></div></div>
       </div>
     </div>
   </div>
@@ -151,304 +173,323 @@
 
 <!-- 00 IDEA -->
 <section class="sec wrap" id="idea">
-  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title">٠٠ — الفكرة الجوهرية</span><div class="sec-line"></div></div>
-  <p class="sec-lead reveal">علامة بحجم The Royal Lounge لا تُبنى بالإعلانات وحدها. هي تُبنى بثقل يُرى قبل أن يُقرأ، وبثقة تُروى من أفواه عملائها قبل أن تُعلَن. هذه الخطة تجمع بين الاثنين معاً، وتضيف إليهما هندسة دقيقة لكل توقيت في اليوم.</p>
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">٠٠ — الفكرة الجوهرية</span><span class="i18n-en">00 — The Core Idea</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">علامة بحجم The Royal Lounge لا تُبنى بالإعلانات وحدها. هي تُبنى بثقل يُرى قبل أن يُقرأ، وبثقة تُروى من أفواه عملائها قبل أن تُعلَن. هذه الخطة تجمع بين الاثنين معاً، وتضيف إليهما هندسة دقيقة لكل توقيت في اليوم.</span><span class="i18n-en">A brand the size of The Royal Lounge isn't built on advertising alone. It's built on a presence that's seen before it's read, and a trust that's told by its own guests before it's ever announced. This plan brings both together, and adds precise engineering for every hour of the day.</span></p>
   <div class="why-box reveal">
-    <div class="lbl">الركائز الثلاث للخطة</div>
-    <p>نُرسّخ صورة تعكس فخامة حقيقية لا شعارات، نمنح الثقة مساحة لتنتقل من عميل إلى عميل بعفوية، ونحوّل كل توقيت في اليوم — من الصباح الهادئ إلى ذروة الليل — إلى قيمة تجارية مقصودة.</p>
+    <div class="lbl"><span class="i18n-ar">الركائز الثلاث للخطة</span><span class="i18n-en">The Plan's Three Pillars</span></div>
+    <p><span class="i18n-ar">نُرسّخ صورة تعكس فخامة حقيقية لا شعارات، نمنح الثقة مساحة لتنتقل من عميل إلى عميل بعفوية، ونحوّل كل توقيت في اليوم — من الصباح الهادئ إلى ذروة الليل — إلى قيمة تجارية مقصودة.</span><span class="i18n-en">We anchor an image that reflects real luxury, not slogans; we give trust room to travel naturally from guest to guest; and we turn every hour of the day — from the quiet morning to the peak of night — into deliberate commercial value.</span></p>
   </div>
 </section>
-
-<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
-  <path d="M0,45 C180,80 260,10 440,45 C600,82 680,15 860,45 C940,62 1010,35 1080,50" stroke="var(--line)" stroke-width="1" fill="none"/>
-</svg>
 
 <!-- 01 POSITIONING -->
 <section class="sec wrap" id="positioning">
-  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title">٠١ — الهوية وثقل البراند</span><div class="sec-line"></div></div>
-  <p class="sec-lead reveal">المكانة لا تُبنى بالادعاء، بل بالتفاصيل المتكررة بانضباط حتى تصبح جزءاً من طريقة إدراك الناس للمكان. مهمتنا أن نجعل ثقل The Royal Lounge محسوساً في كل ما يُرى ويُقرأ، لا أن نكتفي بوصفه بالكلمات.</p>
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">٠١ — الهوية وثقل البراند</span><span class="i18n-en">01 — Identity &amp; Brand Weight</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">المكانة لا تُبنى بالكلام، بل بالتفاصيل التي تتكرر باستمرار حتى تصبح جزءاً من الصورة الذهنية عن المكان. مهمتنا أن نجعل ثقل The Royal Lounge محسوساً في كل ما يُرى ويُقرأ، لا أن نكتفي بوصفه بالكلمات.</span><span class="i18n-en">Standing isn't built through talk, but through details that repeat continuously until they become part of the place's mental image. Our job is to make The Royal Lounge's weight felt in everything seen and read — not simply describe it in words.</span></p>
 
   <div class="why-box reveal">
-    <div class="lbl">الفرق بين مكان يقول إنه فاخر ومكان يُشعرك بذلك</div>
-    <p>لا يكمن في الكلمات، بل في التفاصيل التي لا يلتفت إليها الوعي لكنها تترك أثرها: زاوية الإضاءة، إيقاع اللقطة، اللحظة التي يُوضع فيها الطبق على الطاولة. هذه التفاصيل، حين تتكرر بانضباط، تبني هيبة لا تحتاج إلى تأكيد.</p>
+    <div class="lbl"><span class="i18n-ar">الفرق بين مكان يقول إنه فاخر ومكان يُشعرك بذلك</span><span class="i18n-en">The Difference Between a Place That Says It’s Luxurious and One That Makes You Feel It</span></div>
+    <p><span class="i18n-ar">لا يكمن في الكلمات، بل في التفاصيل الصغيرة التي لا نلاحظها بوضوح لكنها تترك أثرها فينا: زاوية الإضاءة، إيقاع اللقطة، اللحظة التي يُوضع فيها الطبق على الطاولة. هذه التفاصيل، حين تتكرر باستمرار، تبني هيبة لا تحتاج إلى تأكيد.</span><span class="i18n-en">Doesn't lie in words, but in the small details we don't consciously notice yet still feel: the angle of the light, the rhythm of a shot, the moment a dish is set on the table. When these details repeat continuously, they build a stature that needs no confirmation.</span></p>
   </div>
 
-  <div class="h3-block reveal">نبرة مخصصة لكل مساحة داخل The Royal Lounge</div>
+  <div class="h3-block reveal"><span class="i18n-ar">نبرة مخصصة لكل مساحة داخل The Royal Lounge</span><span class="i18n-en">A Distinct Tone for Every Space Inside The Royal Lounge</span></div>
   <table class="data-table reveal">
-    <thead><tr><th>المساحة</th><th>النبرة الحاكمة</th></tr></thead>
+    <thead><tr><th><span class="i18n-ar">المساحة</span><span class="i18n-en">Space</span></th><th><span class="i18n-ar">النبرة الحاكمة</span><span class="i18n-en">Governing Tone</span></th></tr></thead>
     <tbody>
-      <tr><td class="key-col">الكافيه والفطار</td><td>هدوء واثق، بلا استعجال ظاهر</td></tr>
-      <tr><td class="key-col">قاعة الـVIP Hall</td><td>احترام مباشر، بلا كلمة زائدة</td></tr>
-      <tr><td class="key-col">المطعم الفاخر والعشاء</td><td>دفء أعمق، وتفاصيل أغنى</td></tr>
-      <tr><td class="key-col">ليالي السهر</td><td>طاقة أعلى، مصانة بالرقي لا مُستهلَكة به</td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">الكافيه والفطار</span><span class="i18n-en">Caf&eacute; &amp; Breakfast</span></td><td><span class="i18n-ar">هدوء واثق، بلا استعجال ظاهر</span><span class="i18n-en">Confident calm, with no visible rush</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">قاعة الـVIP Hall</span><span class="i18n-en">The VIP Hall</span></td><td><span class="i18n-ar">احترام مباشر، بلا كلمة زائدة</span><span class="i18n-en">Direct respect, no wasted words</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">المطعم الفاخر والعشاء</span><span class="i18n-en">Fine Dining &amp; Dinner</span></td><td><span class="i18n-ar">دفء أعمق، وتفاصيل أغنى</span><span class="i18n-en">Deeper warmth, richer detail</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">ليالي السهر</span><span class="i18n-en">Late Nights</span></td><td><span class="i18n-ar">طاقة أعلى، مصانة بالرقي لا مُستهلَكة به</span><span class="i18n-en">Higher energy, kept elegant rather than worn down by it</span></td></tr>
     </tbody>
   </table>
 
   <div class="why-box reveal">
-    <div class="lbl">معيار بصري سينمائي واحد لا يتغير</div>
-    <p>تختلف النبرة باختلاف المساحة، لكن مستوى الجودة البصرية — الإضاءة، زاوية الكادر، الإحساس السينمائي — يبقى ثابتاً في كل مكان. من يشاهد المحتوى يجب أن يتعرف على The Royal Lounge فوراً، بصرف النظر عن المساحة التي صُوِّر فيها.</p>
+    <div class="lbl"><span class="i18n-ar">معيار بصري سينمائي واحد لا يتغير</span><span class="i18n-en">One Cinematic Visual Standard That Never Changes</span></div>
+    <p><span class="i18n-ar">تختلف النبرة باختلاف المساحة، لكن مستوى الجودة البصرية — الإضاءة، زاوية الكادر، الإحساس السينمائي — يبقى ثابتاً في كل مكان. من يشاهد المحتوى يجب أن يتعرف على The Royal Lounge فوراً، مهما كانت المساحة التي صُوِّر فيها.</span><span class="i18n-en">The tone changes with the space, but the level of visual quality — the lighting, the framing, the cinematic feel — stays constant everywhere. Anyone watching the content should recognize The Royal Lounge instantly, no matter which space it was filmed in.</span></p>
+  </div>
+
+  <div class="why-box reveal">
+    <div class="lbl"><span class="i18n-ar">القصة التسويقية للبراند (Brand Story)</span><span class="i18n-en">The Brand&#39;s Marketing Story (Brand Story)</span></div>
+    <p><span class="i18n-ar">نبني القصة التسويقية في المرحلة التأسيسية على العناصر المؤكدة من هوية المكان وتفاصيله الحالية — التجارب الأربع، الحرفية، والحضور الفعلي. أي بُعد تاريخي يُضاف إلى هذه القصة لاحقاً بعد تأكيده رسمياً من العميل، لضمان أن كل ما يُروى حقيقي وموثوق.</span><span class="i18n-en">In the foundational phase, we build the brand's marketing story on the confirmed elements of the venue's identity and current details — the four experiences, the craftsmanship, and the real, present-day experience. Any historical dimension is added to this story later, once officially confirmed by the client, to ensure everything told is genuine and verifiable.</span></p>
   </div>
 </section>
-
-<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
-  <path d="M0,50 C160,20 260,85 420,50 C580,20 680,85 840,50 C930,32 1000,62 1080,45" stroke="var(--line)" stroke-width="1" fill="none"/>
-</svg>
 
 <!-- 08 PLATFORMS -->
 <section class="sec wrap" id="content">
-  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title">٠٢ — توحيد الهوية على كل المنصات</span><div class="sec-line"></div></div>
-  <p class="sec-lead reveal">أي تفاوت بين المنصات — شعار مختلف، ألوان متضاربة — يهدم الجهد المبذول في كل محور آخر من هذه الخطة. المعايير يجب أن تكون واحدة في كل مكان.</p>
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">٠٢ — توحيد الهوية على كل المنصات</span><span class="i18n-en">02 — Unifying Identity Across All Platforms</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">أي تفاوت بين المنصات — شعار مختلف، ألوان متضاربة — يهدم الجهد المبذول في كل محور آخر من هذه الخطة. المعايير يجب أن تكون واحدة في كل مكان.</span><span class="i18n-en">Any inconsistency between platforms — a different logo, clashing colors — undermines the effort put into every other part of this plan. The standard must be one, everywhere.</span></p>
 
   <table class="data-table reveal">
-    <thead><tr><th>المنصة</th><th>الوضع الحالي</th><th>الاتجاه</th></tr></thead>
+    <thead><tr><th><span class="i18n-ar">المنصة</span><span class="i18n-en">Platform</span></th><th><span class="i18n-ar">الوضع الحالي</span><span class="i18n-en">Current Status</span></th><th><span class="i18n-ar">الاتجاه</span><span class="i18n-en">Direction</span></th></tr></thead>
     <tbody>
-      <tr><td class="key-col">إنستجرام</td><td><span class="pill" style="background:rgba(184,241,11,0.12); color:var(--ok);">مقبولة</span></td><td>نعمّق العلاقة مع الجمهور الموجود بالفعل</td></tr>
-      <tr><td class="key-col">فيسبوك</td><td><span class="pill" style="background:rgba(255,107,107,0.12); color:var(--coral);">تحتاج إعادة تأسيس</span></td><td>نبدأ بتنظيف الصفحة، ونركز على تفاعل حقيقي قبل أي محاولة لزيادة الأرقام</td></tr>
-      <tr><td class="key-col">تيك توك</td><td><span class="pill" style="background:rgba(184,241,11,0.12); color:var(--brass-bright);">فرصة نمو</span></td><td>المنصة تكافئ اللحظة القوية بصرياً، فننشر فيها بمعدل أعلى</td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">إنستجرام</span><span class="i18n-en">Instagram</span></td><td><span class="pill" style="background:rgba(184,241,11,0.12); color:var(--ok);"><span class="i18n-ar">مقبولة</span><span class="i18n-en">Acceptable</span></span></td><td><span class="i18n-ar">نعمّق العلاقة مع الجمهور الموجود بالفعل</span><span class="i18n-en">Deepen the relationship with the existing audience</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">فيسبوك</span><span class="i18n-en">Facebook</span></td><td><span class="pill" style="background:rgba(255,107,107,0.12); color:var(--coral);"><span class="i18n-ar">تحتاج إعادة تأسيس</span><span class="i18n-en">Needs Rebuilding</span></span></td><td><span class="i18n-ar">نبدأ بتنظيف الصفحة، ونركز على تفاعل حقيقي قبل أي محاولة لزيادة الأرقام</span><span class="i18n-en">Start by cleaning up the page and focus on genuine engagement before any push to grow the numbers</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">تيك توك</span><span class="i18n-en">TikTok</span></td><td><span class="pill" style="background:rgba(184,241,11,0.12); color:var(--brass-bright);"><span class="i18n-ar">فرصة نمو</span><span class="i18n-en">Growth Opportunity</span></span></td><td><span class="i18n-ar">المنصة تكافئ اللحظة القوية بصرياً، فننشر فيها بمعدل أعلى</span><span class="i18n-en">The platform rewards a strong visual moment, so we publish there at a higher frequency</span></td></tr>
     </tbody>
   </table>
 </section>
-
-<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
-  <path d="M0,45 C180,80 260,10 440,45 C600,82 680,15 860,45 C940,62 1010,35 1080,50" stroke="var(--line)" stroke-width="1" fill="none"/>
-</svg>
 
 <!-- 02 CONTENT PILLARS -->
 <section class="sec wrap" id="pillars">
-  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title">٠٣ — محاور المحتوى</span><div class="sec-line"></div></div>
-  <p class="sec-lead reveal">يتوزع كل ما يُنشر على ثلاثة محاور، لكل منها دور لا يتقاطع مع الآخر.</p>
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">٠٣ — محاور المحتوى</span><span class="i18n-en">03 — Content Pillars</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">يتوزع كل ما يُنشر على ثلاثة محاور، لكل منها دور مختلف عن الباقي.</span><span class="i18n-en">Everything published falls under three pillars, each with a role distinct from the others.</span></p>
 
   <table class="data-table reveal">
-    <thead><tr><th>المحور</th><th>الوظيفة</th></tr></thead>
+    <thead><tr><th><span class="i18n-ar">المحور</span><span class="i18n-en">Pillar</span></th><th><span class="i18n-ar">الوظيفة</span><span class="i18n-en">Function</span></th></tr></thead>
     <tbody>
-      <tr><td class="key-col">الحرفية</td><td>لقطات التحضير والتفاصيل الدقيقة، من إنتاجنا المباشر، تبني إحساساً بالجودة من غير خطاب مباشر</td></tr>
-      <tr><td class="key-col">التجربة</td><td>اللحظة الفعلية داخل المكان — الطعام، الأجواء، الخدمة — بلا خطاب تسويقي مباشر</td></tr>
-      <tr><td class="key-col">الإثبات</td><td>تقييم ٤.٨ من ١٣٥ مراجعة، يتحول إلى شهادات حية من عملاء حقيقيين</td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">الحرفية</span><span class="i18n-en">Craft</span></td><td><span class="i18n-ar">لقطات التحضير والتفاصيل الدقيقة، من إنتاجنا المباشر، تبني إحساساً بالجودة من غير خطاب مباشر</span><span class="i18n-en">Preparation shots and fine detail, from our own production, build a sense of quality without a direct sales pitch</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">التجربة</span><span class="i18n-en">Experience</span></td><td><span class="i18n-ar">اللحظة الفعلية داخل المكان — الطعام، الأجواء، الخدمة — بلا خطاب تسويقي مباشر</span><span class="i18n-en">The real moment inside the venue — the food, the atmosphere, the service — without a direct marketing pitch</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">الإثبات</span><span class="i18n-en">Proof</span></td><td><span class="i18n-ar">تقييم ٤.٨ من ١٣٥ مراجعة، يتحول إلى شهادات حية من عملاء حقيقيين</span><span class="i18n-en">A 4.8 rating from 135 reviews, turned into live testimonials from real guests</span></td></tr>
     </tbody>
   </table>
 
   <div class="why-box reveal">
-    <div class="lbl">قاعدة حاكمة</div>
-    <p>الفخامة التي تشرح نفسها كثيراً تفقد قيمتها. أقوى محتوى فاخر هو الذي يُري ولا يُخبر، ويترك للمشاهد مساحة ليصل إلى النتيجة بنفسه.</p>
+    <div class="lbl"><span class="i18n-ar">قاعدة حاكمة</span><span class="i18n-en">Governing Rule</span></div>
+    <p><span class="i18n-ar">الفخامة التي تشرح نفسها كثيراً تفقد قيمتها. أقوى محتوى فاخر هو الذي يُري ولا يُخبر، ويترك للمشاهد مساحة ليصل إلى النتيجة بنفسه.</span><span class="i18n-en">Luxury that over-explains itself loses its value. The strongest luxury content shows rather than tells, leaving the viewer room to arrive at the conclusion on their own.</span></p>
   </div>
 </section>
-
-<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
-  <path d="M0,45 C180,80 260,10 440,45 C600,82 680,15 860,45 C940,62 1010,35 1080,50" stroke="var(--line)" stroke-width="1" fill="none"/>
-</svg>
 
 <!-- 03 PRODUCTION -->
 <section class="sec wrap" id="production">
-  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title">٠٤ — الإنتاج البصري</span><div class="sec-line"></div></div>
-  <p class="sec-lead reveal">التصوير هنا ليس نشاطاً منفصلاً يُنجز عند الحاجة، بل جزء تشغيلي ثابت: يومان كل أسبوع، لكل منهما غرض مختلف تماماً — يوم لخلق المحتوى نفسه بكل أنواعه، ويوم لدعم نمو المكان بفكرة جديدة كل أسبوع.</p>
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">٠٤ — الإنتاج البصري</span><span class="i18n-en">04 — Visual Production</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">التصوير هنا ليس نشاطاً منفصلاً يُنجز عند الحاجة، بل جزء تشغيلي ثابت: يومان كل أسبوع، لكل منهما غرض مختلف تماماً — يوم لخلق المحتوى نفسه بكل أنواعه، ويوم لدعم نمو المكان بفكرة جديدة كل أسبوع. هذا الإيقاع يُترجم شهرياً إلى ٢٤ قطعة محتوى جاهزة للنشر (٨ تصاميم + ١٦ فيديو ريلز).</span><span class="i18n-en">Filming here isn't a separate activity done as needed — it's a fixed operational part of the plan: two days a week, each with an entirely different purpose — one day to create the content itself in all its forms, and one day to support the venue's growth with a fresh idea every week. This rhythm translates monthly into 24 ready-to-publish pieces of content (8 designs + 16 Reels videos).</span></p>
 
   <table class="data-table reveal">
-    <thead><tr><th>اليوم الثابت</th><th>الجوهر</th><th>ما يحدث فيه</th></tr></thead>
+    <thead><tr><th><span class="i18n-ar">اليوم الثابت</span><span class="i18n-en">Fixed Day</span></th><th><span class="i18n-ar">الجوهر</span><span class="i18n-en">Essence</span></th><th><span class="i18n-ar">ما يحدث فيه</span><span class="i18n-en">What Happens</span></th></tr></thead>
     <tbody>
-      <tr><td class="key-col">اليوم الأول<br><span style="font-size:11px; color:var(--text-dim); font-weight:400;">Food Styling &amp; On-Site Content</span></td><td>تصوير الأطباق وخلق المحتوى داخل المكان</td><td>تصوير الأطباق بجودة سينمائية، بالتوازي مع التقاط أي محتوى متاح في المكان في نفس اليوم — سواء من فريق العمل (EGC)، من عملاء حاضرين فعلياً (UGC)، أو من متعاونين مدعوين (IGC)</td></tr>
-      <tr><td class="key-col">اليوم الثاني<br><span style="font-size:11px; color:var(--text-dim); font-weight:400;">الفعالية الأسبوعية الثابتة</span></td><td>تغطية الفعالية الثابتة وأفكار النمو</td><td>تغطية الفعالية الأسبوعية الثابتة في المكان، مبنية كل مرة على فكرة جديدة تخلق إحساساً بأن هناك دائماً ما يستحق الحضور — ومن لم يحضر، فاته شيء فعلاً</td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">اليوم الأول</span><span class="i18n-en">Day One</span><br><span style="font-size:11px; color:var(--text-dim); font-weight:400;">Food Styling &amp; On-Site Content</span></td><td><span class="i18n-ar">تصوير الأطباق وخلق المحتوى داخل المكان</span><span class="i18n-en">Shooting dishes and creating on-site content</span></td><td><span class="i18n-ar">تصوير الأطباق بجودة سينمائية، بالتوازي مع التقاط أي محتوى متاح في المكان في نفس اليوم — سواء من فريق العمل (EGC)، من عملاء حاضرين فعلياً (UGC)، أو من إنفلونسرز مدعوين</span><span class="i18n-en">Shooting dishes to a cinematic standard, alongside capturing any available content in the venue that same day — whether from the team (EGC), guests actually present (UGC), or invited influencers</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">اليوم الثاني</span><span class="i18n-en">Day Two</span><br><span style="font-size:11px; color:var(--text-dim); font-weight:400;"><span class="i18n-ar">الفعالية الأسبوعية الثابتة</span><span class="i18n-en">The Fixed Weekly Event</span></span></td><td><span class="i18n-ar">تغطية الفعالية الثابتة وأفكار النمو</span><span class="i18n-en">Covering the fixed event and growth ideas</span></td><td><span class="i18n-ar">تغطية الفعالية الأسبوعية الثابتة في المكان، مبنية كل مرة على فكرة جديدة تخلق إحساساً بأن هناك دائماً ما يستحق الحضور — ومن لم يحضر، فاته شيء فعلاً</span><span class="i18n-en">Covering the venue's fixed weekly event, built each time on a new idea that creates a sense there's always something worth showing up for — and that whoever missed it genuinely missed something</span></td></tr>
     </tbody>
   </table>
 
   <div class="why-box reveal">
-    <div class="lbl">دعم مستمر، لا تصوير فحسب</div>
-    <p>دورنا هنا لا يقتصر على الإنتاج البصري — نغذّي المكان باستمرار بأفكار متجددة تناسب كل توقيت، سواء في أوقات الذروة أو الأوقات الهادئة، بحيث يبقى دائماً هناك سبب جديد للحضور.</p>
+    <div class="lbl"><span class="i18n-ar">دعم مستمر، لا تصوير فحسب</span><span class="i18n-en">Ongoing Support, Not Just Filming</span></div>
+    <p><span class="i18n-ar">دورنا هنا لا يقتصر على الإنتاج البصري — نغذّي المكان باستمرار بأفكار متجددة تناسب كل توقيت، سواء في أوقات الذروة أو الأوقات الهادئة، بحيث يبقى دائماً هناك سبب جديد للحضور.</span><span class="i18n-en">Our role here isn't limited to visual production — we continuously feed the venue with fresh ideas suited to every time slot, whether peak or quiet hours, so there's always a new reason to come.</span></p>
   </div>
 </section>
-
-<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
-  <path d="M0,50 C160,20 260,85 420,50 C580,20 680,85 840,50 C930,32 1000,62 1080,45" stroke="var(--line)" stroke-width="1" fill="none"/>
-</svg>
 
 <!-- 04 UGC -->
 <section class="sec wrap" id="ugc">
-  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title">٠٥ — ثقة الجمهور ومحتوى العملاء</span><div class="sec-line"></div></div>
-  <p class="sec-lead reveal">الثقة التي يُحدثها عميل حقيقي يتحدث عن تجربته الفعلية، لا يصنع مثلها أي إعلان مدفوع. جمهور التجمع الخامس بات واعياً بما يكفي ليُميّز اللحظة المُفتعلة من اللحظة الصادقة، وهنا يكمن دور استراتيجية إشراك صنّاع المحتوى.</p>
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">٠٥ — ثقة الجمهور ومحتوى العملاء</span><span class="i18n-en">05 — Audience Trust &amp; Guest-Generated Content</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">الثقة التي يُحدثها عميل حقيقي يتحدث عن تجربته الفعلية، لا يصنع مثلها أي إعلان مدفوع. جمهور التجمع الخامس بات واعياً بما يكفي ليُميّز اللحظة المصطنعة من اللحظة الصادقة، وهنا يكمن دور استراتيجية إشراك صنّاع المحتوى.</span><span class="i18n-en">The trust created by a real guest talking about their actual experience can't be matched by any paid ad. The Fifth Settlement audience has become savvy enough to tell a staged moment from a genuine one — and that's exactly where the content-creator engagement strategy comes in.</span></p>
 
   <div class="why-box reveal">
-    <div class="lbl">هندسة العفوية</div>
-    <p>نُشرك مجموعة مختارة من صنّاع المحتوى والذوّاقة (Taste-Makers) ممن يتوافق حضورهم مع تموضع البراند، ونمنحهم إطاراً موجَّهاً بدقة يتيح لهم التقاط تجربتهم بعفوية حقيقية، دون أن تتحول اللقطة إلى إعلان مباشر يفقد مصداقيته.</p>
+    <div class="lbl"><span class="i18n-ar">هندسة العفوية</span><span class="i18n-en">Engineering Spontaneity</span></div>
+    <p><span class="i18n-ar">نُشرك مجموعة مختارة من صنّاع المحتوى المهتمين بالطعام والفخامة، ممن تتناسب شخصيتهم مع صورة البراند، ونمنحهم إطاراً موجَّهاً بدقة يتيح لهم التقاط تجربتهم بعفوية حقيقية، دون أن تتحول اللقطة إلى إعلان مباشر يفقد مصداقيته.</span><span class="i18n-en">We engage a curated group of content creators passionate about food and luxury, whose personal image fits the brand's, and give them a precisely guided framework that lets them capture their experience with genuine spontaneity — without the shot turning into a direct ad that loses credibility.</span></p>
   </div>
 
   <table class="data-table reveal">
-    <thead><tr><th>محور التجربة</th><th>الجمهور المستهدف</th></tr></thead>
+    <thead><tr><th><span class="i18n-ar">محور التجربة</span><span class="i18n-en">Experience Focus</span></th><th><span class="i18n-ar">الجمهور المستهدف</span><span class="i18n-en">Target Audience</span></th></tr></thead>
     <tbody>
-      <tr><td class="key-col">تجربة الـVIP Hall</td><td>من يبحث عن مساحة تعكس صورته المهنية</td></tr>
-      <tr><td class="key-col">تجربة الكافيه</td><td>من يبحث عن أجواء هادئة وراقية</td></tr>
-      <tr><td class="key-col">تجربة المطعم</td><td>من يبحث عن مناسبة أو تجربة فاخرة مع العائلة والأصدقاء</td></tr>
-      <tr><td class="key-col">أجواء السهر والشيشة</td><td>من يبحث عن أجواء ليلية حتى ساعات متأخرة</td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">تجربة الـVIP Hall</span><span class="i18n-en">The VIP Hall Experience</span></td><td><span class="i18n-ar">من يبحث عن مساحة تعكس صورته المهنية</span><span class="i18n-en">Those seeking a space that reflects their professional image</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">تجربة الكافيه</span><span class="i18n-en">The Caf&eacute; Experience</span></td><td><span class="i18n-ar">من يبحث عن أجواء هادئة وراقية</span><span class="i18n-en">Those seeking a calm, upscale atmosphere</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">تجربة المطعم</span><span class="i18n-en">The Restaurant Experience</span></td><td><span class="i18n-ar">من يبحث عن مناسبة أو تجربة فاخرة مع العائلة والأصدقاء</span><span class="i18n-en">Those seeking an occasion or a luxurious experience with family and friends</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">أجواء السهر والشيشة</span><span class="i18n-en">The Late-Night &amp; Shisha Atmosphere</span></td><td><span class="i18n-ar">من يبحث عن أجواء ليلية حتى ساعات متأخرة</span><span class="i18n-en">Those seeking a night-time atmosphere that lasts into the late hours</span></td></tr>
     </tbody>
   </table>
 
   <div class="why-box reveal">
-    <div class="lbl">من محتوى عفوي إلى إعلان عالي التحويل</div>
-    <p>أقوى اللقطات الناتجة عن هذه الاستراتيجية لا تُترك للنشر العضوي وحده — يُعاد توظيفها كإعلانات مستهدفة بصيغة Dark Posting، تظهر للجمهور كمنشور طبيعي في تدفقه اليومي لا كرسالة تسويقية، وهو ما يمنحها معدل تحويل أعلى بكثير من الإعلان التقليدي، لأنها تحمل مصداقية العميل الحقيقي لا صوت البراند وحده.</p>
+    <div class="lbl"><span class="i18n-ar">من محتوى عفوي إلى إعلان عالي التحويل</span><span class="i18n-en">From Spontaneous Content to High-Converting Ads</span></div>
+    <p><span class="i18n-ar">أقوى اللقطات الناتجة عن هذه الاستراتيجية لا تُترك للنشر العضوي وحده — يُعاد توظيفها كإعلانات مستهدفة بصيغة Dark Posting، تظهر للجمهور كمنشور طبيعي في تدفقه اليومي لا كرسالة تسويقية، وهو ما يمنحها معدل تحويل أعلى بكثير من الإعلان التقليدي، لأنها تحمل مصداقية العميل الحقيقي لا صوت البراند وحده.</span><span class="i18n-en">The strongest shots this strategy produces aren't left to organic posting alone — they're repurposed as targeted ads through Dark Posting, appearing to the audience as a natural post in their daily feed rather than a marketing message. That gives them a far higher conversion rate than a traditional ad, because they carry the credibility of a real guest, not just the brand's own voice.</span></p>
   </div>
+
+  <div class="h3-block reveal"><span class="i18n-ar">إطار تنفيذ ميزانية صنّاع المحتوى والفعاليات</span><span class="i18n-en">Content Creator &amp; Event Budget Execution Framework</span></div>
+  <p class="reveal" style="color:var(--text-mid); font-size:14.5px; max-width:740px; margin-bottom:20px;"><span class="i18n-ar">هذا القسم يترجم الميزانية الشهرية المخصصة لصنّاع المحتوى والفعاليات إلى خطة تنفيذ عملية. الأرقام أدناه نقطة بداية مقترحة، تُراجَع وتُعتمَد مع فريق الحساب في أول أسبوعين من التنفيذ.</span><span class="i18n-en">This section translates the monthly budget allocated for content creators and events into a practical execution plan. The figures below are a proposed starting point, to be reviewed and finalized with the account team during the first two weeks of execution.</span></p>
+  <table class="data-table reveal">
+    <thead><tr><th><span class="i18n-ar">البند</span><span class="i18n-en">Item</span></th><th><span class="i18n-ar">الإطار المقترح</span><span class="i18n-en">Proposed Framework</span></th></tr></thead>
+    <tbody>
+      <tr><td class="key-col"><span class="i18n-ar">صنّاع المحتوى شهرياً</span><span class="i18n-en">Content Creators Monthly</span></td><td><span class="i18n-ar">١–٢ متعاونين (Micro-Influencers وصنّاع محتوى مهتمين بالطعام)، غالبيتهم تعاون تجربة مقابل محتوى، مع تعاونات مدفوعة محدودة لتوسيع الوصول عند الحاجة</span><span class="i18n-en">1&ndash;2 collaborators (micro-influencers and food-focused content creators), mostly experience-for-content collaborations, with limited paid partnerships to extend reach when needed</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">الفعاليات المدعومة</span><span class="i18n-en">Supported Events</span></td><td><span class="i18n-ar">الفعالية الأسبوعية الثابتة، بالإضافة إلى مناسبة خاصة أو موسمية واحدة كل شهر</span><span class="i18n-en">The fixed weekly event, plus one special or seasonal occasion each month</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">توزيع الميزانية</span><span class="i18n-en">Budget Allocation</span></td><td><span class="i18n-ar">يُحدَّد نهائياً بعد مراجعة نطاق كل تعاون، ويُوثَّق شهرياً ضمن التقرير المرفق بتقرير الأداء</span><span class="i18n-en">Finalized after reviewing the scope of each collaboration, and documented monthly within the report attached to the performance report</span></td></tr>
+    </tbody>
+  </table>
 </section>
 
-<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
-  <path d="M0,45 C180,80 260,10 440,45 C600,82 680,15 860,45 C940,62 1010,35 1080,50" stroke="var(--line)" stroke-width="1" fill="none"/>
-</svg>
+<!-- 05B COMMUNITY -->
+<section class="sec wrap" id="community">
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">٠٦ — التواصل اليومي مع الجمهور</span><span class="i18n-en">06 — Daily Audience Communication</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">كل رسالة أو تعليق يصل دون رد سريع يترك انطباعاً عكس ما تبنيه الخطة بأكملها. الثقة التي نبنيها بالمحتوى تتأكد أو تضيع في لحظة الرد الفعلية.</span><span class="i18n-en">Every message or comment that goes unanswered quickly leaves an impression that works against everything this plan is building. The trust we build through content is either confirmed or lost in the actual moment of response.</span></p>
+
+  <div class="why-box reveal">
+    <div class="lbl"><span class="i18n-ar">معيار الرد</span><span class="i18n-en">Response Standard</span></div>
+    <p><span class="i18n-ar">نُدير الرسائل والتعليقات على كل المنصات بمعدل رد لا يتجاوز ١٢ ساعة، بنفس النبرة المخصصة لكل مساحة. الرد بشري بالكامل من فريق عمل مخصص لهذه المهمة، لا رسائل آلية. مراجعات جوجل تُعامَل بأولوية خاصة — فهي الامتداد المباشر لمحور الإثبات، والرد عليها جزء من صورة المكان بقدر ما هو خدمة عملاء.</span><span class="i18n-en">We manage messages and comments across all platforms with a response time not exceeding 12 hours, in the same tone assigned to each space. Responses are entirely human, handled by a team dedicated to this task &mdash; not automated replies. Google reviews are treated with special priority, since they're the direct extension of the Proof pillar, and responding to them is as much a part of the venue's image as it is customer service.</span></p>
+  </div>
+
+  <div class="why-box reveal">
+    <div class="lbl"><span class="i18n-ar">مسار التصعيد</span><span class="i18n-en">Escalation Path</span></div>
+    <p><span class="i18n-ar">أي استفسار أو شكوى تحتاج قراراً أعلى من مستوى الرد المعتاد — تفاصيل حجز حساسة، شكوى جوهرية، طلب خاص من عميل مهم — تُصعَّد فوراً للأونر أو الفريق المختص عنده، بدل أن تُترك عند المسؤول عن الرد اليومي وحده.</span><span class="i18n-en">Any inquiry or complaint that requires a decision above the usual response level &mdash; sensitive booking details, a substantial complaint, a special request from an important guest &mdash; is escalated immediately to the owner or the relevant team on their side, rather than being left solely with the person handling daily replies.</span></p>
+  </div>
+</section>
 
 <!-- 05 IN-VENUE -->
 <section class="sec wrap" id="invenue">
-  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title">٠٦ — تجربة العميل داخل المكان</span><div class="sec-line"></div></div>
-  <p class="sec-lead reveal">يجلب المحتوى الزيارة الأولى، لكن الإحساس الفعلي داخل المكان هو ما يقرر إن كانت ستتكرر. حين يتطابق ما يراه الزائر عبر الشاشة مع ما يعيشه فعلياً بين الجدران، يتحول تلقائياً إلى سفير للبراند دون أن يُطلب منه ذلك.</p>
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">٠٧ — تجربة العميل داخل المكان</span><span class="i18n-en">07 — The In-Venue Guest Experience</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">يجلب المحتوى الزيارة الأولى، لكن الإحساس الفعلي داخل المكان هو ما يقرر إن كانت ستتكرر. حين يتطابق ما يراه الزائر عبر الشاشة مع ما يعيشه فعلياً بين الجدران، يتحول تلقائياً إلى سفير للبراند دون أن يُطلب منه ذلك.</span><span class="i18n-en">Content brings the first visit, but the actual feeling inside the venue decides whether it happens again. When what a visitor sees on screen matches what they actually experience within the walls, they automatically become a brand ambassador without ever being asked to.</span></p>
 
   <div class="why-box reveal">
-    <div class="lbl">الـVIP Hall كامتياز انتماء، لا مجرد خدمة</div>
-    <p>يجب أن تُشعر القاعة مرتادها بأنه جزء من دائرة ضيقة تضم من هم على مستواه، لا مجرد عميل يستخدم مساحة عمل. هذا الإحساس بالانتماء هو ما يدفعه للعودة حتى في أوقات النهار الهادئة، لأنه لا يأتي فقط للعمل، بل ليتواجد وسط من يشبهونه.</p>
+    <div class="lbl"><span class="i18n-ar">الـVIP Hall كامتياز انتماء، لا مجرد خدمة</span><span class="i18n-en">The VIP Hall as a Privilege of Belonging, Not Just a Service</span></div>
+    <p><span class="i18n-ar">يجب أن تُشعر القاعة مرتادها بأنه جزء من دائرة ضيقة تضم من هم على مستواه، لا مجرد عميل يستخدم مساحة عمل. هذا الإحساس بالانتماء هو ما يدفعه للعودة حتى في أوقات النهار الهادئة، لأنه لا يأتي فقط للعمل، بل ليتواجد وسط من يشبهونه.</span><span class="i18n-en">The Hall should make its guest feel part of a select circle of peers at his level, not simply a customer using a workspace. This sense of belonging is what brings him back even during quiet daytime hours, because he isn't coming just to work &mdash; he's coming to be among people like him.</span></p>
   </div>
 </section>
-
-<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
-  <path d="M0,50 C160,20 260,85 420,50 C580,20 680,85 840,50 C930,32 1000,62 1080,45" stroke="var(--line)" stroke-width="1" fill="none"/>
-</svg>
 
 <!-- 06 OFF-PEAK -->
 <section class="sec wrap" id="offpeak">
-  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title">٠٧ — استثمار الساعات الميتة</span><div class="sec-line"></div></div>
-  <p class="sec-lead reveal">المشكلة ليست في غياب الوعي بأن المكان مفتوح صباحاً، بل في غياب عرض مصمَّم خصيصاً لهذا التوقيت. الحل هنا منتجي بالدرجة الأولى، لا إعلاني.</p>
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">٠٨ — استثمار الساعات الميتة</span><span class="i18n-en">08 — Making the Dead Hours Count</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">المشكلة ليست في غياب الوعي بأن المكان مفتوح صباحاً، بل في غياب عرض مصمَّم خصيصاً لهذا التوقيت. الحل هنا منتجي بالدرجة الأولى، لا إعلاني.</span><span class="i18n-en">The problem isn't a lack of awareness that the venue is open in the morning &mdash; it's the absence of an offer designed specifically for that time slot. The solution here is primarily a product one, not an advertising one.</span></p>
 
   <table class="data-table reveal">
-    <thead><tr><th>التوقيت</th><th>الجمهور</th><th>ما نقدمه</th></tr></thead>
+    <thead><tr><th><span class="i18n-ar">التوقيت</span><span class="i18n-en">Time Slot</span></th><th><span class="i18n-ar">الجمهور</span><span class="i18n-en">Audience</span></th><th><span class="i18n-ar">ما نقدمه</span><span class="i18n-en">What We Offer</span></th></tr></thead>
     <tbody>
-      <tr><td class="key-col">الصباح — قاعة الـVIP Hall (٩–١٢)</td><td>رجال أعمال ومستقلون يبحثون عن بداية يوم منظمة</td><td>بيئة عمل فاخرة، لا مجرد مكان جلوس</td></tr>
-      <tr><td class="key-col">الصباح — الفطار</td><td>عملاء يبحثون عن بداية يوم هادئة قبل الزحمة</td><td>تجربة فطار مُقدَّمة كوجهة بحد ذاتها، لا كخدمة ثانوية قبل الغداء</td></tr>
-      <tr><td class="key-col">الظهيرة (١٢–٤)</td><td>عائلات واجتماعات عمل قصيرة</td><td>تجربة غداء مُنظّمة بإيقاع أسرع من العشاء</td></tr>
-      <tr><td class="key-col">منتصف الأسبوع مساءً</td><td>عملاء يبحثون عن الهدوء</td><td>نقدّم الوقت الهادئ كامتياز، لا كضعف في الإقبال</td></tr>
-      <tr><td class="key-col">الليل</td><td>محبو الأجواء الحية والشيشة</td><td>التجربة الاجتماعية الكاملة كما هي</td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">الصباح — قاعة الـVIP Hall (٩–١٢)</span><span class="i18n-en">Morning &mdash; The VIP Hall (9&ndash;12)</span></td><td><span class="i18n-ar">رجال أعمال ومستقلون يبحثون عن بداية يوم منظمة</span><span class="i18n-en">Business people and freelancers seeking a structured start to their day</span></td><td><span class="i18n-ar">بيئة عمل فاخرة، لا مجرد مكان جلوس</span><span class="i18n-en">A luxury work environment, not just a place to sit</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">الصباح — الفطار</span><span class="i18n-en">Morning &mdash; Breakfast</span></td><td><span class="i18n-ar">عملاء يبحثون عن بداية يوم هادئة قبل الزحمة</span><span class="i18n-en">Guests seeking a calm start to the day before the rush</span></td><td><span class="i18n-ar">تجربة فطار مُقدَّمة كوجهة بحد ذاتها، لا كخدمة ثانوية قبل الغداء</span><span class="i18n-en">A breakfast experience presented as a destination in its own right, not a secondary service before lunch</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">الظهيرة (١٢–٤)</span><span class="i18n-en">Afternoon (12&ndash;4)</span></td><td><span class="i18n-ar">عائلات واجتماعات عمل قصيرة</span><span class="i18n-en">Families and short business meetings</span></td><td><span class="i18n-ar">تجربة غداء مُنظّمة بإيقاع أسرع من العشاء</span><span class="i18n-en">A lunch experience paced faster than dinner</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">منتصف الأسبوع مساءً</span><span class="i18n-en">Midweek Evenings</span></td><td><span class="i18n-ar">عملاء يبحثون عن الهدوء</span><span class="i18n-en">Guests seeking quiet</span></td><td><span class="i18n-ar">نقدّم الوقت الهادئ كامتياز، لا كضعف في الإقبال</span><span class="i18n-en">We present quiet time as a privilege, not a sign of low turnout</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">الليل</span><span class="i18n-en">Night</span></td><td><span class="i18n-ar">محبو الأجواء الحية والشيشة</span><span class="i18n-en">Lovers of live atmosphere and shisha</span></td><td><span class="i18n-ar">التجربة الاجتماعية الكاملة كما هي</span><span class="i18n-en">The full social experience, exactly as it is</span></td></tr>
     </tbody>
   </table>
 
-  <div class="h3-block reveal">تسعير ذكي لا يمس قيمة البراند</div>
-  <p class="reveal" style="color:var(--text-mid); font-size:14.5px; max-width:740px; margin-bottom:20px;">القاعدة الحاكمة: لا خصومات، بل إضافات قيمة. الخصم يُخبر العميل أن قيمة المنتج أقل. الإضافة تُخبره أن هذا التوقيت صُمم خصيصاً من أجله.</p>
+  <div class="h3-block reveal"><span class="i18n-ar">تسعير ذكي لا يمس قيمة البراند</span><span class="i18n-en">Smart Pricing That Never Touches Brand Value</span></div>
+  <p class="reveal" style="color:var(--text-mid); font-size:14.5px; max-width:740px; margin-bottom:20px;"><span class="i18n-ar">القاعدة الحاكمة: لا خصومات، بل إضافات قيمة. الخصم يُخبر العميل أن قيمة المنتج أقل. الإضافة تُخبره أن هذا التوقيت صُمم خصيصاً من أجله.</span><span class="i18n-en">The governing rule: no discounts, only added value. A discount tells the guest the product is worth less. An addition tells them this time slot was designed just for them.</span></p>
 
   <table class="data-table reveal">
-    <thead><tr><th>الآلية</th><th>لماذا تنجح</th></tr></thead>
+    <thead><tr><th><span class="i18n-ar">الآلية</span><span class="i18n-en">Mechanism</span></th><th><span class="i18n-ar">لماذا تنجح</span><span class="i18n-en">Why It Works</span></th></tr></thead>
     <tbody>
-      <tr><td class="key-col">الندرة بدل الخصم</td><td>تجربة مميزة بعدد مقاعد محدود في التوقيت الهادئ، بدل خصم عادي يفقد المكان تمايزه</td></tr>
-      <tr><td class="key-col">القيمة المضافة لا السعر الأقل</td><td>خدمة أو تفصيلة إضافية تُقدَّم في الوقت الهادئ، بدل تخفيض السعر — العميل يشعر أنه مُميَّز، لا أن المكان بحاجة لعملاء</td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">الندرة بدل الخصم</span><span class="i18n-en">Scarcity Instead of Discounts</span></td><td><span class="i18n-ar">تجربة مميزة بعدد مقاعد محدود في التوقيت الهادئ، بدل خصم عادي يفقد المكان تمايزه</span><span class="i18n-en">A distinctive experience with limited seating during quiet hours, instead of a plain discount that erodes the venue's distinction</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">القيمة المضافة لا السعر الأقل</span><span class="i18n-en">Added Value, Not a Lower Price</span></td><td><span class="i18n-ar">خدمة أو تفصيلة إضافية تُقدَّم في الوقت الهادئ، بدل تخفيض السعر — العميل يشعر أنه مُميَّز، لا أن المكان بحاجة لعملاء</span><span class="i18n-en">An extra service or detail offered during quiet hours instead of a price cut &mdash; the guest feels special, rather than sensing the venue needs customers</span></td></tr>
     </tbody>
   </table>
 
   <div class="kpi-box reveal">
-    <div class="lbl">مؤشر القياس</div>
-    <p>نسبة الإشغال في الأوقات الهادئة. نبدأ برصد الأرقام الحالية بدقة خلال أول أسبوعين، ثم نضع هدفاً واقعياً مبنياً عليها.</p>
+    <div class="lbl"><span class="i18n-ar">مؤشر القياس</span><span class="i18n-en">Success Metric</span></div>
+    <p><span class="i18n-ar">نسبة الإشغال في الأوقات الهادئة. نبدأ برصد الأرقام الحالية بدقة خلال أول أسبوعين، ثم نضع هدفاً واقعياً مبنياً عليها.</span><span class="i18n-en">Occupancy rate during quiet hours. We start by precisely tracking the current numbers over the first two weeks, then set a realistic target based on them.</span></p>
   </div>
 </section>
-
-<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
-  <path d="M0,45 C180,80 260,10 440,45 C600,82 680,15 860,45 C940,62 1010,35 1080,50" stroke="var(--line)" stroke-width="1" fill="none"/>
-</svg>
 
 <!-- 07 RETENTION -->
 <section class="sec wrap" id="ltv">
-  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title">٠٨ — استبقاء العملاء وبناء الولاء</span><div class="sec-line"></div></div>
-  <p class="sec-lead reveal">مطعم فاخر بميزانية محدودة نسبياً لا يملك ترف مطاردة عملاء جدد باستمرار. الأولوية الحقيقية لمن يعود. عميل يزور المكان ثماني مرات في العام يفوق قيمة ثلاثة عملاء يزورونه مرة واحدة فقط.</p>
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">٠٩ — استبقاء العملاء وبناء الولاء</span><span class="i18n-en">09 — Guest Retention &amp; Loyalty Building</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">مطعم فاخر بميزانية محدودة نسبياً لا يملك ترف مطاردة عملاء جدد باستمرار. الأولوية الحقيقية لمن يعود. عميل يزور المكان ثماني مرات في العام يفوق قيمة ثلاثة عملاء يزورونه مرة واحدة فقط.</span><span class="i18n-en">A luxury restaurant with a relatively limited budget can't afford to constantly chase new customers. The real priority belongs to whoever comes back. A guest who visits eight times a year is worth more than three guests who each visit just once.</span></p>
 
   <table class="data-table reveal">
-    <thead><tr><th>الفئة</th><th>سبب المجيء</th><th>سبب العودة</th></tr></thead>
+    <thead><tr><th><span class="i18n-ar">الفئة</span><span class="i18n-en">Segment</span></th><th><span class="i18n-ar">سبب المجيء</span><span class="i18n-en">Reason for Coming</span></th><th><span class="i18n-ar">سبب العودة</span><span class="i18n-en">Reason for Returning</span></th></tr></thead>
     <tbody>
-      <tr><td class="key-col">رجال أعمال ومستقلون</td><td>حاجة عملية للعمل</td><td>يعودون حين يصبح لهم يوم ثابت في الأسبوع</td></tr>
-      <tr><td class="key-col">العائلات</td><td>مناسبات خاصة</td><td>يعودون حين يرتبط المكان بذكريات حقيقية</td></tr>
-      <tr><td class="key-col">عشاق الطعام</td><td>التجربة نفسها</td><td>يعودون حين تتجدد القائمة وتحمل ما يستحق التجربة</td></tr>
-      <tr><td class="key-col">محبو الأجواء الحية</td><td>الحضور الاجتماعي</td><td>يعودون حين يشعرون بالانتماء للمكان ولمن فيه</td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">رجال أعمال ومستقلون</span><span class="i18n-en">Business People &amp; Freelancers</span></td><td><span class="i18n-ar">حاجة عملية للعمل</span><span class="i18n-en">A practical need to work</span></td><td><span class="i18n-ar">يعودون حين يصير المكان جزءاً من إيقاع أسبوعهم المعتاد</span><span class="i18n-en">They return once the venue becomes part of their regular weekly rhythm</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">العائلات</span><span class="i18n-en">Families</span></td><td><span class="i18n-ar">مناسبات خاصة</span><span class="i18n-en">Special occasions</span></td><td><span class="i18n-ar">يعودون حين يرتبط المكان بذكريات حقيقية</span><span class="i18n-en">They return once the venue is tied to real memories</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">عشاق الطعام</span><span class="i18n-en">Food Lovers</span></td><td><span class="i18n-ar">التجربة نفسها</span><span class="i18n-en">The experience itself</span></td><td><span class="i18n-ar">يعودون لأطباق بعينها ارتبطوا بها هنا تحديداً، ما وجدوا مثلها في مكان آخر</span><span class="i18n-en">They return for specific dishes they've come to associate with this place exactly, dishes they haven't found anywhere else</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">محبو الأجواء الحية</span><span class="i18n-en">Live-Atmosphere Lovers</span></td><td><span class="i18n-ar">الحضور الاجتماعي</span><span class="i18n-en">The social scene</span></td><td><span class="i18n-ar">يعودون حين يشعرون بالانتماء للمكان ولمن فيه</span><span class="i18n-en">They return when they feel they belong to the place and its people</span></td></tr>
     </tbody>
   </table>
 
-  <div class="h3-block reveal">أول ثلاث زيارات هي النافذة الحاسمة</div>
+  <div class="h3-block reveal"><span class="i18n-ar">أول ثلاث زيارات هي النافذة الحاسمة</span><span class="i18n-en">The First Three Visits Are the Decisive Window</span></div>
   <div class="why-box reveal">
-    <div class="lbl">إزاي نصنع العودة</div>
-    <p>حين يزور العميل المكان ثلاث مرات خلال أول شهرين، ترتفع احتمالية تحوله إلى عميل دائم بشكل ملحوظ. لهذا، يجب أن تنتهي كل زيارة أولى بسبب واضح للعودة، لا بشكر عابر فحسب. وبرنامج الولاء الأنسب هنا لا يقوم على النقاط والخصومات — فهذا يمس قيمة البراند الفاخر — بل على امتيازات حقيقية: طاولة مفضلة، أولوية تجربة الجديد، دعوات حصرية.</p>
+    <div class="lbl"><span class="i18n-ar">إزاي نصنع العودة</span><span class="i18n-en">How We Engineer Return Visits</span></div>
+    <p><span class="i18n-ar">حين يزور العميل المكان ثلاث مرات خلال أول شهرين، ترتفع احتمالية تحوله إلى عميل دائم بشكل ملحوظ. لهذا، يجب أن تنتهي كل زيارة أولى بسبب واضح للعودة، لا بشكر عابر فحسب. وبرنامج الولاء الأنسب هنا لا يقوم على النقاط والخصومات — فهذا يمس قيمة البراند الفاخر — بل على امتيازات حقيقية: طاولة مفضلة، أولوية تجربة الجديد، دعوات حصرية.</span><span class="i18n-en">When a guest visits three times within the first two months, the likelihood of becoming a regular rises significantly. That's why every first visit should end with a clear reason to return, not just a passing thank-you. And the right loyalty program here isn't built on points and discounts &mdash; that undermines a luxury brand's value &mdash; but on real privileges: a preferred table, priority to try what's new, exclusive invitations.</span></p>
   </div>
 
   <div class="kpi-box reveal">
-    <div class="lbl">مؤشر القياس</div>
-    <p>نسبة العملاء العائدين خلال شهرين من الزيارة الأولى، ونسبة من يصلون لثلاث زيارات في أول ٩٠ يوماً. هذا أهم من عدد العملاء الجدد وحده.</p>
+    <div class="lbl"><span class="i18n-ar">مؤشر القياس</span><span class="i18n-en">Success Metric</span></div>
+    <p><span class="i18n-ar">نسبة العملاء العائدين خلال شهرين من الزيارة الأولى، ونسبة من يصلون لثلاث زيارات في أول ٩٠ يوماً. هذا أهم من عدد العملاء الجدد وحده.</span><span class="i18n-en">The percentage of guests returning within two months of their first visit, and the percentage reaching three visits within the first 90 days. This matters more than the number of new guests alone.</span></p>
   </div>
 </section>
-
-<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
-  <path d="M0,50 C160,20 260,85 420,50 C580,20 680,85 840,50 C930,32 1000,62 1080,45" stroke="var(--line)" stroke-width="1" fill="none"/>
-</svg>
 
 <!-- 09 PAID -->
 <section class="sec wrap" id="paid">
-  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title">٠٩ — الإعلانات المدفوعة</span><div class="sec-line"></div></div>
-  <p class="sec-lead reveal">The Royal Lounge ليس تجربة واحدة، بل أربع تجارب مختلفة تحت سقف واحد. لذلك لا نبني حملة واحدة تخاطب الجميع، بل أربعة استهدافات متوازية تعمل في نفس الوقت، كل واحدة تخاطب جمهوراً مختلفاً بمحتوى مختلف تماماً — بالإضافة إلى قناة خامسة مستقلة كلياً عن السوشيال ميديا.</p>
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">١٠ — الإعلانات المدفوعة</span><span class="i18n-en">10 — Paid Advertising</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">The Royal Lounge ليس تجربة واحدة، بل أربع تجارب مختلفة تحت سقف واحد. على منصات Meta تحديداً (فيسبوك وإنستجرام)، لا نبني حملة واحدة تخاطب الجميع، بل أربعة استهدافات متوازية تعمل في نفس الوقت، كل واحدة تخاطب جمهوراً مختلفاً بمحتوى مختلف تماماً.</span><span class="i18n-en">The Royal Lounge isn't one experience &mdash; it's four distinct experiences under one roof. On Meta platforms specifically (Facebook and Instagram), instead of one campaign speaking to everyone, we run four parallel targeting streams working at the same time, each speaking to a different audience with completely different content.</span></p>
 
   <table class="data-table reveal">
-    <thead><tr><th>الاستهداف</th><th>الجمهور والرسالة</th></tr></thead>
+    <thead><tr><th><span class="i18n-ar">الاستهداف على Meta</span><span class="i18n-en">Targeting on Meta</span></th><th><span class="i18n-ar">الجمهور والرسالة</span><span class="i18n-en">Audience &amp; Message</span></th></tr></thead>
     <tbody>
-      <tr><td class="key-col">قاعة الـVIP Hall</td><td>الشركات ورجال الأعمال الباحثين عن مساحة عمل تعكس مكانتهم المهنية</td></tr>
-      <tr><td class="key-col">الكافيه</td><td>الباحثون عن أجواء هادئة وراقية، بعيداً عن صخب الأماكن الأخرى</td></tr>
-      <tr><td class="key-col">المطعم</td><td>العائلات والأصدقاء الباحثون عن مناسبة أو تجربة فاخرة مشتركة</td></tr>
-      <tr><td class="key-col">ليالي السهر</td><td>محبو الشيشة والأجواء الليلية، حتى ساعات متأخرة من الليل</td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">قاعة الـVIP Hall</span><span class="i18n-en">The VIP Hall</span></td><td><span class="i18n-ar">الشركات ورجال الأعمال الباحثين عن مساحة عمل تعكس مكانتهم المهنية</span><span class="i18n-en">Companies and business people seeking a workspace that reflects their professional standing</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">الكافيه</span><span class="i18n-en">The Caf&eacute;</span></td><td><span class="i18n-ar">الباحثون عن أجواء هادئة وراقية، بعيداً عن صخب الأماكن الأخرى</span><span class="i18n-en">Those seeking a calm, upscale atmosphere, away from the noise of other places</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">المطعم</span><span class="i18n-en">The Restaurant</span></td><td><span class="i18n-ar">العائلات والأصدقاء الباحثون عن مناسبة أو تجربة فاخرة مشتركة</span><span class="i18n-en">Families and friends seeking an occasion or a shared luxury experience</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">ليالي السهر</span><span class="i18n-en">Late Nights</span></td><td><span class="i18n-ar">محبو الشيشة والأجواء الليلية، حتى ساعات متأخرة من الليل</span><span class="i18n-en">Shisha and night-life lovers, staying out into the late hours</span></td></tr>
     </tbody>
   </table>
 
   <div class="why-box reveal">
-    <div class="lbl">جوجل والموقع الإلكتروني — قناة مستقلة تماماً</div>
-    <p>بجانب الاستهدافات الأربعة على السوشيال ميديا، هناك قناة خامسة منفصلة كلياً في منطقها: من يبحث عن المكان بنفسه على جوجل. هذا جمهور بنية مختلفة تماماً — لا نعرّفه بالمكان، بل نتأكد أنه يجده بسهولة ويصل لقرار الحجز مباشرة عبر الموقع الإلكتروني.</p>
+    <div class="lbl"><span class="i18n-ar">تيك توك وجوجل — قناتان منفصلتان بمنطق مختلف</span><span class="i18n-en">TikTok &amp; Google &mdash; Two Separate Channels With a Different Logic</span></div>
+    <p><span class="i18n-ar">تيك توك لا يخضع لنفس التقسيم الرباعي — طبيعة المنصة تكافئ اللحظة القوية بصرياً بغض النظر عن أي تجربة تحديداً، فيُدار بميزانية ومنطق مستقلين. وجوجل قناة مختلفة تماماً في طبيعتها: من يبحث عن المكان بنفسه لا نعرّفه به، بل نتأكد أنه يجده بسهولة ويصل لقرار الحجز مباشرة عبر الموقع الإلكتروني.</span><span class="i18n-en">TikTok doesn't follow the same four-way split &mdash; the platform's nature rewards a strong visual moment regardless of which specific experience it belongs to, so it's managed with its own independent budget and logic. Google is an entirely different kind of channel by nature: for people searching for the venue themselves, we're not introducing them to it &mdash; we're making sure they find it easily and reach a booking decision directly through the website.</span></p>
   </div>
 
-  <div class="h3-block reveal">الاستهداف الجغرافي المحلي</div>
+  <div class="why-box reveal" style="border-right-color: var(--coral);">
+    <div class="lbl" style="color: var(--coral);"><span class="i18n-ar">شرط إطلاق: الموقع الإلكتروني أولاً</span><span class="i18n-en">Launch Condition: Website First</span></div>
+    <p><span class="i18n-ar">ميزانية جوجل لا تُفعَّل إلا بعد التأكد من أن الموقع الإلكتروني جاهز فعلياً لاستقبال الزوار وتحويلهم لحجز — توجيه ميزانية مدفوعة لموقع غير جاهز يهدر الميزانية بالكامل. هذا البند لا يبدأ إلا بعد تأكيد صريح بجاهزية الموقع.</span><span class="i18n-en">The Google budget isn't activated until we've confirmed the website is genuinely ready to receive visitors and convert them into bookings &mdash; directing paid budget to a site that isn't ready wastes the entire budget. This item doesn't begin until we have explicit confirmation the website is ready.</span></p>
+  </div>
+
+  <div class="h3-block reveal"><span class="i18n-ar">الاستهداف الجغرافي المحلي</span><span class="i18n-en">Local Geographic Targeting</span></div>
   <table class="data-table reveal">
-    <thead><tr><th>الدائرة</th><th>الجمهور</th></tr></thead>
+    <thead><tr><th><span class="i18n-ar">الدائرة</span><span class="i18n-en">Radius</span></th><th><span class="i18n-ar">الجمهور</span><span class="i18n-en">Audience</span></th></tr></thead>
     <tbody>
-      <tr><td class="key-col">الدائرة الأقرب</td><td>المترددون المحتملون يومياً، وتحديداً لشغل الـVIP Hall</td></tr>
-      <tr><td class="key-col">الدائرة الأوسع</td><td>زوار المناسبات من الكومباوندات المجاورة</td></tr>
-      <tr><td class="key-col">إعادة الاستهداف</td><td>من زار الموقع أو تفاعل مع المحتوى ولم يحجز بعد</td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">الدائرة الأقرب</span><span class="i18n-en">Inner Radius</span></td><td><span class="i18n-ar">المترددون المحتملون يومياً، وتحديداً لشغل الـVIP Hall</span><span class="i18n-en">Potential daily regulars, specifically for the VIP Hall</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">الدائرة الأوسع</span><span class="i18n-en">Wider Radius</span></td><td><span class="i18n-ar">زوار المناسبات من الكومباوندات المجاورة</span><span class="i18n-en">Occasion visitors from neighboring compounds</span></td></tr>
+      <tr><td class="key-col"><span class="i18n-ar">إعادة الاستهداف</span><span class="i18n-en">Retargeting</span></td><td><span class="i18n-ar">من زار الموقع أو تفاعل مع المحتوى ولم يحجز بعد</span><span class="i18n-en">Those who visited the website or engaged with content but haven’t booked yet</span></td></tr>
     </tbody>
   </table>
 
   <div class="kpi-box reveal">
-    <div class="lbl">مؤشر القياس</div>
-    <p>تكلفة اكتساب العميل الجديد مقارنة بمتوسط الفاتورة، ونسبة التحويل في كل مرحلة من مراحل الرحلة — لا عدد المشاهدات أو الإعجابات وحده.</p>
+    <div class="lbl"><span class="i18n-ar">مؤشر القياس</span><span class="i18n-en">Success Metric</span></div>
+    <p><span class="i18n-ar">تكلفة اكتساب العميل الجديد مقارنة بمتوسط الفاتورة، ونسبة التحويل في كل مرحلة من مراحل الرحلة — لا عدد المشاهدات أو الإعجابات وحده.</span><span class="i18n-en">Customer acquisition cost relative to average check size, and the conversion rate at each stage of the journey &mdash; not just the number of views or likes.</span></p>
   </div>
 </section>
 
-<svg class="ink-divider reveal" viewBox="0 0 1080 100" preserveAspectRatio="none">
-  <path d="M0,50 C160,20 260,85 420,50 C580,20 680,85 840,50 C930,32 1000,62 1080,45" stroke="var(--line)" stroke-width="1" fill="none"/>
-</svg>
+<!-- 09B REPORTING -->
+<section class="sec wrap" id="reporting">
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">١١ — المتابعة والتقارير</span><span class="i18n-en">11 — Tracking &amp; Reporting</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">خطة بهذا الحجم لا تُقاس بالانطباع، بل بأرقام تُراجَع بانتظام. المتابعة المنضبطة هي ما يحوّل كل محور سابق من نية إلى نتيجة قابلة للتتبع.</span><span class="i18n-en">A plan of this scale isn't measured by impression, but by numbers reviewed regularly. Disciplined tracking is what turns every pillar above from an intention into a trackable result.</span></p>
+
+  <div class="why-box reveal">
+    <div class="lbl"><span class="i18n-ar">تقرير شهري ومدير حساب مخصص</span><span class="i18n-en">Monthly Report &amp; Dedicated Account Manager</span></div>
+    <p><span class="i18n-ar">تقرير مفصل كل شهر يغطي أداء كل محور من محاور الخطة على حدة — لا أرقاماً عامة مجمّعة — بمتابعة مباشرة عبر مدير حساب واحد يعرف تفاصيل الملف بالكامل، لا نقطة تواصل متغيرة في كل مرة.</span><span class="i18n-en">A detailed report every month covering the performance of each pillar of the plan individually &mdash; not aggregated general numbers &mdash; with direct follow-up through a single account manager who knows the full details of the account, not a changing point of contact every time.</span></p>
+  </div>
+</section>
 
 <!-- 10 TIMELINE -->
 <section class="sec wrap" id="timeline">
-  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title">١٠ — خريطة الطريق لتسعين يوماً</span><div class="sec-line"></div></div>
-  <p class="sec-lead reveal">ثلاث مراحل متعاقبة، تبني كل واحدة منها على بيانات حقيقية من سابقتها، لا على افتراضات.</p>
+  <div class="sec-header reveal"><div class="sec-line"></div><span class="sec-title"><span class="i18n-ar">١٢ — خريطة الطريق لتسعين يوماً</span><span class="i18n-en">12 — The 90-Day Roadmap</span></span><div class="sec-line"></div></div>
+  <p class="sec-lead reveal"><span class="i18n-ar">المسارات تعمل معاً منذ اليوم الأول، لا الواحد بعد الآخر. انتظار اكتمال الأساس بالكامل قبل الظهور والانتشار يُهدر وقتاً لا داعي له — الإصلاح والإنتاج والإعلانات والمتابعة يتحركون بالتوازي، وكل شهر يرفع من كثافة الجميع معاً. هذه المراحل الثلاث تمثّل المرحلة الأولى من تعاون أطول؛ خريطة الشهور التالية تُبنى بعد اكتمالها وبناءً على نتائجها الفعلية.</span><span class="i18n-en">The tracks work together from day one, not one after another. Waiting for the foundation to be fully complete before appearing and spreading wastes unnecessary time &mdash; fixes, production, ads, and follow-up all move in parallel, and every month raises the intensity of all of them together. These three months represent the first phase of a longer collaboration; the roadmap for the following months is built once this phase is complete and based on its actual results.</span></p>
 
   <table class="data-table reveal">
-    <thead><tr><th>الشهر</th><th>محاور العمل</th><th>مؤشرات النجاح</th></tr></thead>
+    <thead><tr><th><span class="i18n-ar">المسار</span><span class="i18n-en">Track</span></th><th><span class="i18n-ar">الشهر الأول</span><span class="i18n-en">Month One</span></th><th><span class="i18n-ar">الشهر الثاني</span><span class="i18n-en">Month Two</span></th><th><span class="i18n-ar">الشهر الثالث</span><span class="i18n-en">Month Three</span></th></tr></thead>
     <tbody>
       <tr>
-        <td class="key-col">الأول</td>
-        <td>معالجة الفجوات التقنية (الهوية، الحسابات غير الحقيقية، الموقع)، توحيد المعايير البصرية، إطلاق أول موجة من محتوى المحاور الأساسية، ورصد أرقام الإشغال الحالية بدقة</td>
-        <td>اكتمال المعالجة التقنية، وتوفر خط أساس واضح نقيس عليه لاحقاً</td>
+        <td class="key-col"><span class="i18n-ar">الإصلاح والتأسيس</span><span class="i18n-en">Fixing &amp; Foundation</span></td>
+        <td><span class="i18n-ar">معالجة الفجوات التقنية (الهوية، الحسابات غير الحقيقية، الموقع)، وتوحيد المعايير البصرية</span><span class="i18n-en">Fixing technical gaps (identity, inauthentic accounts, the website), and unifying visual standards</span></td>
+        <td><span class="i18n-ar">استكمال أي تفاصيل متبقية، ومراجعة أثر الإصلاح على الأداء العضوي</span><span class="i18n-en">Completing any remaining details, and reviewing the fix's impact on organic performance</span></td>
+        <td><span class="i18n-ar">تثبيت المعايير كخط عمل دائم، لا مهمة تُنجز وتُنسى</span><span class="i18n-en">Locking in the standards as a permanent way of working, not a task done and forgotten</span></td>
       </tr>
       <tr>
-        <td class="key-col">الثاني</td>
-        <td>تفعيل يومي التصوير الأسبوعيين، إطلاق باقات الأوقات الهادئة، بدء أول موجة تعاون مع صنّاع المحتوى، وتشغيل الحملات الإعلانية بمراحلها الثلاث</td>
-        <td>تحسن ملموس في إشغال الأوقات الهادئة، وأولى مؤشرات نمو الثقة العضوية</td>
+        <td class="key-col"><span class="i18n-ar">الإنتاج والإعلانات</span><span class="i18n-en">Production &amp; Advertising</span></td>
+        <td><span class="i18n-ar">بدء يومي التصوير الأسبوعيين فوراً، وتشغيل أول موجة إعلانات على فيسبوك وإنستجرام وتيك توك بالتوازي مع مسار الإصلاح — ميزانية جوجل تنتظر تأكيد جاهزية الموقع</span><span class="i18n-en">Starting the two weekly filming days immediately, and running the first wave of ads on Facebook, Instagram, and TikTok in parallel with the fixing track &mdash; the Google budget waits for confirmation the website is ready</span></td>
+        <td><span class="i18n-ar">تكثيف الإنتاج والإعلانات بناءً على أول بيانات أداء حقيقية، وبدء أول تعاون مع صنّاع المحتوى — تنضم حملات جوجل فور تأكيد جاهزية الموقع</span><span class="i18n-en">Intensifying production and advertising based on the first real performance data, and starting the first creator collaboration &mdash; Google campaigns join in as soon as the website's readiness is confirmed</span></td>
+        <td><span class="i18n-ar">تحويل أقوى مقاطع الـUGC إلى إعلانات، وإعادة توزيع الميزانية نحو القنوات الأعلى عائداً</span><span class="i18n-en">Converting the strongest UGC clips into ads, and reallocating budget toward the highest-return channels</span></td>
       </tr>
       <tr>
-        <td class="key-col">الثالث</td>
-        <td>تكثيف توزيع مكتبة المحتوى، تحويل أقوى مقاطع الـUGC إلى إعلانات، إطلاق برنامج الولاء الكامل، وإعادة توزيع الاستثمار نحو الأقنية الأعلى عائداً</td>
-        <td>نسبة الإشغال الإجمالية، نسبة العملاء بثلاث زيارات فأكثر، ونسبة الزوار القادمين عبر محتوى لا إعلان مباشر</td>
+        <td class="key-col"><span class="i18n-ar">التواصل والمتابعة</span><span class="i18n-en">Communication &amp; Follow-up</span></td>
+        <td><span class="i18n-ar">تفعيل الرد اليومي على الرسائل ومسار التصعيد من اليوم الأول</span><span class="i18n-en">Activating daily message responses and the escalation path from day one</span></td>
+        <td><span class="i18n-ar">استمرار نفس المعيار، مع أول تقرير شهري رسمي عبر مدير الحساب</span><span class="i18n-en">Maintaining the same standard, with the first official monthly report via the account manager</span></td>
+        <td><span class="i18n-ar">نفس المعيار مستمر، موثّقاً أثر كل مسار سابق</span><span class="i18n-en">The same standard continues, documenting the impact of every track above</span></td>
+      </tr>
+      <tr>
+        <td class="key-col"><span class="i18n-ar">الاستبقاء والولاء</span><span class="i18n-en">Retention &amp; Loyalty</span></td>
+        <td><span class="i18n-ar">رصد سلوك الزيارة الأولى كخط أساس</span><span class="i18n-en">Tracking first-visit behavior as a baseline</span></td>
+        <td><span class="i18n-ar">تفعيل أول لمسات الاستبقاء — سبب واضح للعودة بعد كل زيارة أولى</span><span class="i18n-en">Activating the first retention touches &mdash; a clear reason to return after every first visit</span></td>
+        <td><span class="i18n-ar">إطلاق برنامج الولاء الكامل بامتيازاته</span><span class="i18n-en">Launching the full loyalty program with its privileges</span></td>
       </tr>
     </tbody>
   </table>
+
+  <div class="kpi-box reveal">
+    <div class="lbl"><span class="i18n-ar">مؤشرات النجاح بنهاية التسعين يوماً</span><span class="i18n-en">Success Indicators by the End of the 90 Days</span></div>
+    <p><span class="i18n-ar">نسبة الإشغال الإجمالية عبر كل الأوقات، نسبة العملاء بثلاث زيارات فأكثر، ونسبة الزوار القادمين عبر محتوى لا إعلان مباشر — بالإضافة إلى خط الأساس الذي حددناه في الشهر الأول لكل مسار على حدة، والذي تُقاس عليه كل مرحلة لاحقة.</span><span class="i18n-en">Overall occupancy rate across all times, the percentage of guests with three or more visits, and the percentage of visitors arriving via content rather than direct ads &mdash; plus the baseline we establish in Month One for each track individually, against which every later phase is measured.</span></p>
+  </div>
 </section>
 
 </main>
 
 <section class="closing wrap reveal">
   <div class="position-eyebrow">Octopus Community</div>
-  <h2>القصة موجودة بالفعل.<br>هذه الخطة كيف تُروى صح، وتُرى صح، في كل موضع.</h2>
-  <p>هذا هو الإطار الاستراتيجي الكامل بمنطقه ومؤشراته. الأصول التنفيذية — السكريبتات، خطط الإضاءة، وقوائم صنّاع المحتوى — تظل جزءاً من مرحلة التنفيذ بعد التعاقد.</p>
-  <div class="signoff">
-    <img src="data:image/jpeg;base64,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" alt="Octopus Community" style="height:26px;width:auto;object-fit:contain;">
-  </div>
+  <h2><span class="i18n-ar">القصة موجودة بالفعل.<br>هذه الخطة كيف تُروى صح، وتُرى صح، في كل موضع.</span><span class="i18n-en">The story already exists.<br>This plan is how it gets told right, and seen right, everywhere.</span></h2>
+  <p><span class="i18n-ar">ما رأيته هو الخريطة العليا للاستراتيجية — منطقها ومؤشراتها واضحان بالكامل، وتحت كل محور طبقة تفاصيل أعمق تُستكمل بعد التعاقد. أما الأصول التنفيذية — السكريبتات، خطط الإضاءة، وقوائم صنّاع المحتوى — فتبقى حصراً في مرحلة التنفيذ.</span><span class="i18n-en">What you've seen here is the strategy's top-level map &mdash; its logic and its metrics are laid out in full, and beneath every pillar sits a deeper layer of detail completed after signing. Execution assets &mdash; scripts, lighting plans, and creator lists &mdash; remain exclusively part of the delivery phase.</span></p>
 </section>
 
 <footer class="site-footer">
@@ -466,6 +507,15 @@
 </footer>
 
 <script>
+  function toggleLang(){
+    const body = document.body;
+    const btn = document.getElementById('langToggle');
+    const isEnglish = body.classList.toggle('lang-en');
+    document.documentElement.setAttribute('dir', isEnglish ? 'ltr' : 'rtl');
+    document.documentElement.setAttribute('lang', isEnglish ? 'en' : 'ar');
+    btn.textContent = isEnglish ? 'AR' : 'EN';
+  }
+
   const els = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
